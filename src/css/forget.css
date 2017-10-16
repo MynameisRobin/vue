@@ -1,0 +1,72 @@
+html,
+body,
+.wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    position: relative;
+    background-image: url(../images/login_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.forget-wrap,
+.register-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 456px;
+    padding: 28px 50px 38px;
+    background-color: rgba(255, 255, 255, .6);
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+.forget-wrap .forgettitle {
+    color: #ff8b6f;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.input-field {
+    position: relative;
+    font-size: 16px;
+    color: #666;
+}
+
+.base-register .input-field {
+    margin-bottom: 14px;
+}
+
+.label-zx {
+    width: 30%;
+    height: 44px;
+    line-height: 44px;
+}
+
+
+/*获取验证码按钮*/
+
+input.input-code {
+    width: 35%;
+    margin-right: 5%;
+}
+
+span.get-code {
+    background: #fff;
+    width: 30%;
+    height: 44px;
+    text-align: center;
+    border-radius: 3px;
+    line-height: 44px;
+    cursor: pointer;
+    color: #ff8b6f;
+}
+
+#sendSubmit {
+    margin-bottom: 20px;
+}

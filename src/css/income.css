@@ -1,0 +1,246 @@
+/*income_page*/
+
+.income {
+    width: 1000px;
+    min-height: 940px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+.tabinner li {
+    font-weight: 600;
+}
+
+.income-left {
+    width: 940px;
+    height: 170px;
+    border: 1px solid lightgray;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+.income-right {
+    border-right: 1px solid lightgray;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.income-right ul li:nth-child(1) {
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+}
+
+.income-right ul li:nth-child(2) {
+    height: 70px;
+    line-height: 70px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.income-right ul li:nth-child(3) {
+    height: 15px;
+    line-height: 15px;
+    font-size: 16px;
+}
+
+.income-top {
+    border-right: 0;
+}
+
+.table-left {
+    width: 940px;
+    min-height: 628px;
+    padding-left: 30px;
+    width: 100%; 
+    padding-right: 35px;
+}
+
+.table-left ul {
+    width: 940px;
+    height: 60px;
+    font-size: 16px;
+}
+
+.table-left ul li {
+    float: left;
+}
+
+.table-left ul li:nth-child(1) {
+    width: 51px;
+    height: 60px;
+    line-height: 60px;
+    color: #DCDCDC;
+}
+
+.table-left ul li:nth-child(2) {
+    width: 51px;
+    height: 60px;
+    line-height: 60px;
+    color: #DCDCDC;
+}
+
+.table-left ul li:nth-child(3) {
+    width: 58px;
+    height: 23px;
+    border-right: 1px solid lightgray;
+    margin-top: 18px;
+    color: #DCDCDC;
+}
+
+#statement_tit, #statement_con {
+   padding: 0;
+   height: 40px;
+   line-height: 40px;
+   text-align: center;
+}
+
+
+#statement_tit span, #statement_con td {
+   padding: 0;
+}
+
+#statement_con td {
+   height: 45px;
+   line-height: 45px;
+}
+
+#account_Table {
+    min-height: 500px;
+}
+
+/*income_page*/
+
+/*account_center_page*/
+
+.income_ul {
+    position: relative;
+}
+
+#withDraw_btn {
+    position: absolute;
+    right: 10px;
+    bottom: 12px;
+}
+
+#withDraw_btn button {
+    background-color: #ff8b6f;
+    color: #fff;
+    border-radius: 3px;
+    padding: 7px 15px;
+    border: 0;
+}
+
+#withDraw_btn p {
+    /*font-size: 10px;*/
+    color: #51CDE7;
+    padding-top: 5px;
+}
+
+.account_table {
+    margin-top: 40px;
+}
+
+#acconut_tabUnit {
+    height: 40px;
+    line-height: 40px;
+    color: #A6A6A6;
+    padding-right: 100px;
+    text-align: right;
+    font-size: 16px;
+}
+
+#table_head td {
+    text-align: center; 
+    padding: 0; 
+    height: 40px; 
+    line-height: 40px;
+    background-color: #f5f5f5;
+}
+
+#table_head td:last-child, #statement_con td:last-child {
+    padding-right: 10px;
+}
+
+#page_R {
+    height: 700px;
+}
+
+#page {
+    position: absolute;
+    bottom: 0;
+    left: 44%;
+    margin-left: -70px;
+}
+
+#table_thead th, #tbody td {
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+#income_tableR {
+    min-height: 450px;
+}
+
+#pagecount {
+    position: absolute;
+    bottom: 30px;
+    padding-left: 0;
+    left: 45%;
+}
+
+.modal-content {
+    height: 500px;
+    width: 400px;
+    margin-top: 150px;
+    margin-left: 70px;
+}
+
+.modal-footer {
+    border: 0;
+    text-align: center;
+}
+
+.btn-default {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    background: #FF7676;
+    color: #fff;
+}
+
+.basic_info {
+    padding-top: 5px;
+    padding-bottom: 30px;
+}
+
+.deduction {
+    padding-top: 20px;
+}
+
+.deductionBottom {
+    padding-top: 30px;
+}
+
+.modal-body p {
+    margin-bottom: 0;
+}
+
+.btn-default {
+    margin-top: 40px;
+}
+
+.pop_listRight {
+    margin-left: 20px;
+    height: 19px;
+    line-height:19px;
+    margin-top: 1px;
+}
+
+.modal-title {
+    font-size: 18px;
+}
+
+/*account_center_page

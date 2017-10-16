@@ -1,0 +1,290 @@
+body {
+    background: #fff;
+}
+
+.box {
+    height: 268px;
+    z-index: -1;
+    position: relative;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+}
+
+.wrap {
+    width: 1200px;
+    min-height: 668px;
+    margin: -45px auto;
+    z-index: 999;
+}
+
+.wrap-left {
+    width: 1200px;
+    height: 90px;
+}
+
+.wrap-left img {
+    width: 90px;
+    height: 90px;
+    float: left;
+}
+
+.wrap-right {
+    width: 1100px;
+    height: 90px;
+    float: left;
+}
+
+.wrap-right ul li:nth-child(1) {
+    height: 45px;
+    color: #EBEAEA;
+    text-indent: 1em;
+    line-height: 45px;
+}
+
+.wrap-right ul li:nth-child(2) {
+    height: 42px;
+    color: #B8B8B8;
+    text-indent: 1em;
+    line-height: 42px;
+}
+
+.tabinner {
+    overflow: hidden;
+    padding: 22px 32px 0 0px;
+    position: relative;
+}
+
+.tabinner li {
+    cursor: pointer;
+    float: left;
+    font-size: 16px;
+    line-height: 41px;
+    margin-left: 7px;
+    padding: 0 4px;
+    position: relative;
+    text-align: center;
+    width: 78px;
+}
+
+.article {
+    width: 1200px;
+    height: 172px;
+    border-bottom: 1px solid lightgray;
+}
+
+.article-left {
+    width: 136px;
+    height: 136px;
+    float: left;
+    padding-top: 20px;
+}
+
+.article-right {
+    width: 1050px;
+    height: 172px;
+    float: left;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+.article-top {
+    height: 35px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.article-right p {
+    width: 888px;
+    color: #999999;
+    margin-top: 5px;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.artTit_icon,
+.artTit_imgs {
+    padding: 1px 6px;
+    color: #fff;
+}
+
+.article-right .article-bottom {
+    margin-top: 50px;
+}
+
+.article-right .article-bottom em {
+    color: #999;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+}
+
+.article-right .article-bottom em .line {
+    background-color: #e5e5e5;
+    color: #fff;
+    height: 100%;
+    overflow: hidden;
+    width: 1px;
+}
+
+.photo {
+    width: 1200px;
+    height: 341px;
+    border-bottom: 1px solid lightgray;
+}
+
+.photo-left {
+    height: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 50px;
+}
+
+.photo-right {
+    width: 1200px;
+    height: 230px;
+}
+
+.photo-right p {
+    width: 1200px;
+    height: 50px;
+    color: #999999;
+    margin-top: 5px;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.photo-top {
+    height: 230px;
+}
+
+.photo-top ul {
+    height: 200px;
+}
+
+.photo-top ul li {
+    width: 177px;
+    height: 179px;
+    display: inline-block;
+}
+
+.photo-top .photo-middle {
+    margin: 0 20px;
+}
+
+.photo-top .photo-align {
+    margin: 0 20px;
+}
+
+.article-bottom em {
+    color: #A69E9E;
+}
+
+.article-left img {
+    width: 100%;
+    height: 100%;
+}
+
+#r_articalList>.articleLis {
+    /*height: 120px;*/
+    padding: 15px 0;
+    border-bottom: 1px solid #EAEAEA;
+    position: relative;
+}
+
+#r_articalList .art_imgBox {
+    display: block;
+}
+
+#r_articalList .art_imgIcon {
+    height: 100px;
+    width: 100px;
+}
+
+#r_articalList .art_info {
+    margin-left: 10px;
+}
+
+#r_articalList .art_title {
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#r_articalList .art_time {
+    margin-top: 7px;
+    color: #AAAAAA;
+}
+
+#r_articalList .art_data {
+    position: absolute;
+    bottom: 15px;
+    color: #AAAAAA;
+}
+
+#r_articalList .art_data span {
+    padding: 0 10px 0 7px;
+    border-right: 1px solid #F0F0F0;
+}
+
+#r_articalList .art_data span:first-child {
+    padding-left: 0;
+}
+
+#r_articalList .art_type {
+    margin-right: 20px;
+}
+
+#r_articalList .art_operate span {
+    height: 100px;
+    line-height: 100px;
+    margin-right: 30px;
+    color: #93C6EA;
+    font-size: 16px;
+}
+
+
+/*轮播图*/
+
+.carousel_box {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.art_imgBox {
+    height: 100px;
+    /*width: 500px;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.leftArrow,
+.rightArrow {
+    font-size: 35px;
+    font-family: '宋体';
+    background: #BBBBBB;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    cursor: pointer;
+    color: #fff;
+    opacity: 0.6;
+}
+
+.rightArrow {
+    right: 0;
+}

@@ -1,0 +1,350 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.form-group {
+    margin-top: 20px;
+    clear: both;
+}
+
+.form-group .form-label {
+    width: 100px;
+    float: left;
+    font-size: 16px;
+    padding-left: 18px;
+    padding-top: 8px;
+}
+
+.form-group .form-content {
+    width: calc(100% - 110px);
+    float: right;
+    position: relative;
+}
+
+.news .title {
+    border: 1px solid #dcdcdc;
+    border-bottom: none;
+    position: relative;
+}
+
+.news .edit {
+    position: relative;
+}
+
+.news .limit,
+.videos .limit,
+.atlas .limit {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    color: #999;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+}
+
+.news .newstitle {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    margin: 0;
+}
+
+#imgArrs .editor_img {
+    border: 1px solid #ccc;
+}
+
+#imgArrs .editor_img.active {
+    border: 2px solid #ff8b6f;
+}
+
+#console {
+    border: 0;
+}
+
+.addimg {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    line-height: 120px;
+    background-color: #eee;
+}
+
+.addimg .fa-plus {
+    font-size: 32px;
+    color: #fff;
+}
+
+.form-sign {
+    margin: 5px 0;
+    color: #9E9E9E;
+}
+
+.drop {
+    float: left;
+}
+
+.form-btn-wrap {
+    margin: 30px 0 20px;
+    padding-left: 110px;
+}
+
+.form-btn {
+    position: relative;
+    width: 110px;
+    height: 34px;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.video-wrap {
+    padding: 18px 0;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.video-btn {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.form-input-wrap,
+.form-radio-wrap {
+    position: relative;
+    width: 640px;
+}
+
+input.form-input {
+    display: block;
+    width: 100%;
+    border: 1px solid #d2d2d2;
+    line-height: 34px;
+    padding: 0 8px;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    border: 1px solid #d2d2d2;
+    line-height: 34px;
+    padding: 0 8px;
+}
+
+.form-radio-wrap {
+    padding: 4px 0 0;
+}
+
+.form-radio {
+    font-weight: 400;
+    font-size: 16px;
+    padding-top: 4px;
+    margin: 0 20px 0 0;
+    float: left;
+}
+
+.form-radio .radio {
+    display: inline-block;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-top: -4px;
+    margin-right: 10px;
+    background: url(../images/ico/radio-ico.png) no-repeat;
+}
+
+.form-radio .radio.checked {
+    background-position: -34px 0;
+}
+
+.atlas-item li {
+    float: left;
+    height: 110px;
+}
+
+.atlas-item .img {
+    width: 110px;
+    background: #DDDDDD;
+}
+
+.atlas-item .imgdesc {
+    width: 583px;
+    margin: 0 36px;
+}
+
+.atlas-item .imgdesc .form-input {
+    height: 110px;
+}
+
+.atlas-item .imgoperate a {
+    display: inline-block;
+    color: #9e9e9e;
+    margin-top: 40px;
+    margin-right: 12px;
+}
+
+.atlas-wrap .atlas-upload {
+    background: #EEEEEE;
+    padding: 22px;
+}
+
+.atlas-wrap {
+    position: relative;
+}
+
+.atlas-wrap .img-upload {
+    font-size: 16px;
+    margin-top: 15px;
+    padding: 8px 0;
+}
+
+.atlas-wrap .form-sign {
+    float: right;
+    margin: 0;
+}
+
+.atlas-wrap .img-add {
+    color: #ff8b6f;
+}
+
+.moxie-shim {
+    display: none;
+}
+
+.ke-icon-images {
+    background-image: url(../assets/kindeditor-4.1.10/themes/default/default.png);
+    background-position: 0px -496px;
+    width: 16px;
+    height: 16px;
+}
+
+input.input-name {
+    width: 500px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+}
+
+.selectArticle,
+.localUpload,
+.selectArticle_atlas,
+.localUpload_atlas {
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    border: 1px solid #F0F0EE;
+}
+
+.selectArticle {
+    margin-right: 5px;
+}
+
+#shade,
+#shade_atlas {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-color: #000000;
+    display: none;
+}
+
+.imgArr,
+.imgArr_atlas {
+    opacity: 1;
+    width: 50%;
+    height: 50%;
+    position: fixed;
+    left: 30%;
+    top: 30%;
+    background-color: #FFFFFF;
+    z-index: 1000;
+    padding: 10px 10px;
+    display: none;
+}
+
+.imgArr>i,
+.imgArr_atlas>i {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.imgArrs>img,
+.imgArrs_atlas>img {
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.yesOrNo,
+.yesOrNo_atlas {
+    position: absolute;
+    left: 45%;
+    bottom: 10px;
+}
+
+.yesOrNo>button:first-child,
+.yesOrNo_atlas>button:first-child {
+    margin-right: 10px;
+}
+
+.auto_save {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    z-index: 99;
+    cursor: pointer;
+}
+
+
+/*标签样式*/
+
+.labelAll button {
+    padding-right: 30px;
+    position: relative;
+}
+
+.labelAll button i {
+    position: absolute;
+    right: 8px;
+    height: 12px;
+    width: 12px;
+    z-index: 1000;
+    top: 10px;
+    background: url(../images/del.png) center center no-repeat;
+}
+
+
+/*专题样式*/
+
+.s_main {
+    padding: 10px 60px;
+    overflow: auto;
+    height: 300px;
+}
+
+.s_main li {
+    width: 30%;
+    margin-right: 3%;
+    float: left;
+    margin-top: 30px;
+}
+
+.search_a {
+    width: 57px;
+    height: 35px;
+    background: url(../images/search.png) center center no-repeat;
+}
+
+input.search_inp {
+    width: 200px;
+    height: 35px;
+}

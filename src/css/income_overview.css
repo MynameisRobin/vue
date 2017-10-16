@@ -1,0 +1,116 @@
+.right-content {
+    width: 1000px;
+    height: 300px;
+}
+
+.income-left {
+    width: 1000px;
+    height: 150px;
+    padding-left: 30px;
+    padding-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0px 1px;
+}
+
+.income-top {
+    float: left;
+    width: 100px;
+    height: 150px;
+}
+
+.income {
+    float: left;
+}
+
+.income-bottom {
+    width: 445px;
+    height: 110px;
+    padding-top: 20px;
+}
+
+.income-middle {
+    width: 95px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.income-bright {
+    width: 710px;
+    height: 110px;
+    padding-top: 20px;
+}
+
+.income-bright span {
+    color: #17B5FF;
+}
+
+.incomeCheck {
+    height: 30px;
+}
+
+.incomeCheck .inputRadio {
+    width: 20px;
+    height: 20px;
+    float: left;
+    background-image: url(../images/unchecked.png);
+    -webkit-background-size: 20px;
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+.incomeCheck div.active {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-image: url(../images/checked.png);
+    -webkit-background-size: 20px;
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+.income-da {
+    display: inline-block;
+    float: left;
+    text-indent: 0.5em;
+}
+
+.right label {
+    font-weight: 100;
+}
+
+.income-bright span {
+    cursor: pointer;
+}
+
+#amountTxt {
+    position:absolute;
+    top:0;
+    left:0;
+    width:90px;
+    height:36px;
+    border:0;
+    margin-top:1.5px;
+    margin-left:2px;
+}
+
+#amountSec {
+    width:120px;
+    height:40px;
+}
+
+.income-bottom .dis-i-b {
+    width:120px;
+    height:40px;
+    position:relative;
+    margin-top: 5px;
+}
+
+#moneyEnter {
+    border: 1px solid #2BC6FF;
+    background: #fff;
+    padding: 1px 2px;
+    color: #2BC6FF;
+    border-radius: 3px;
+}
+

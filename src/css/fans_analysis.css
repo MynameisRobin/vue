@@ -1,0 +1,71 @@
+.wrapper {
+    background: #fff;
+}
+
+.fans-list {
+    position: relative;
+    height: auto;
+}
+
+.fans-list .fans-wrap {
+    width: 975px;
+    overflow: visible;
+}
+
+.fans-list .list-item {
+    position: relative;
+    float: left;
+    width: 160px;
+    height: 194px;
+    margin-right: 35px;
+    margin-bottom: 30px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+
+.fans-list .list-item .fans-face {
+    width: 76px;
+    height: 76px;
+    margin: 18px auto 0 auto;
+}
+
+.fans-list .list-item .fans-face img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.fans-list .list-item .fans-name {
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    padding: 0 10px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.fans-list .list-item .btn-concern {
+    display: block;
+    padding: 0;
+    margin: 15px auto 0 auto;
+    width: 77px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.fans-list .list-item .btn-concern .fa {
+    margin-right: 4px;
+}
+
+
+/*最小高度*/
+
+.right-content {
+    min-height: 672px;
+}
+
+
+/*.fans-list .list-item .togglea{
+	display: none;
+}*/

@@ -1,0 +1,161 @@
+/*分析类型*/
+.analyseType {
+	margin-bottom: 18px;
+}
+
+.analyseType a {
+	padding: 7px 10px;
+	display: inline-block;
+	border-radius: 2px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.analyseType a:first-child {
+	margin-right: 10px;
+}
+
+.analyseType a.active {
+	background-color: #ffa893;
+	color: #fff;
+}
+/*分析类型*/
+
+/*搜索区域*/
+#search_box select, #search_box input[type="text"] {
+	width: 120px;
+	display: inline-block;
+	height: 34px;
+}
+
+#search_box select {
+	margin-right: 20px;
+}
+
+#search_box .exportExc {
+	height: 34px;
+	line-height: 34px;
+	padding: 0 20px;
+	background: #ff8b6f;
+	color: #fff;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+#timeBox input {
+	margin: 0 10px;
+}
+
+#search_icon {
+	margin-left: 10px;
+}
+
+/*搜索区域*/
+
+/*提示信息*/
+.promptMess {
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	color: #AAAAAA;
+	margin-bottom: 10px;
+}
+/*提示信息*/
+
+/*次数信息*/
+.numMessBox div {
+	border: 1px solid #DCDCDC;
+	height: 120px;
+	width: 31%;
+	margin-right: 32px;
+	margin-bottom: 30px;
+	text-align: center;
+	padding-top: 24px;
+	box-sizing: border-box;
+}
+
+.numMessBox div:nth-child(3), .numMessBox div:last-child {
+	margin-right: 0;
+}
+
+.numMessBox div span, .videoNumMess span {
+	font-size: 40px;
+	color: #666666;
+}
+
+.numMessBox div p, .videoNumMess p {
+	/*padding-top: 10px;*/
+	color: #999999;
+}
+
+.videoNumMess {
+	border: 1px solid #DCDCDC;
+	height: 120px;
+	width: 100%;
+	text-align: center;
+	padding-top: 24px;
+	box-sizing: border-box;
+}
+
+/*次数信息*/
+
+/*echarts折线图*/
+.chart{
+	height: 400px;
+	width: 100%;
+	margin: 0 auto;
+	left: center;
+	top: 'middle';
+}
+
+.chartAboutNav ul {
+	font-size: 16px;
+	color: #999999;
+	padding-left: 45px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.chartAboutNav li {
+	margin-right: 50px;
+	cursor: pointer;
+}
+
+.chartAboutNav li.active {
+	color: #ffa893;
+}
+
+/*表格*/
+#table_head th, #allArtTabCon td, #sinArtTabCon td, #videoTabCon td, #currArtTab td, #currVideoTab td {
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+#sinArtTabCon .tableConTit, #currArtTab .tableConTit {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#sinArtTabCon .tableConTit {
+	max-width: 80px;
+}
+
+#currArtTab .tableConTit {
+	max-width: 56px;
+}
+
+.totalVideoTable {
+	margin-top: 30px;
+}
+
+#videoTabHead th {
+	padding: 0;
+	width: 50%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+/*表格*/
