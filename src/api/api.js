@@ -1,6 +1,5 @@
 import $ from 'jquery'
 import vue from 'vue'
-const headApi = "http://toutiao.zxtest.izxcs.com/zxcity-cms-new-ms/newms/";
 // api
 export default class Api {
     constructor() {

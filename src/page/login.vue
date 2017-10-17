@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="header">
             <div class="header-inner clearfix">
-                <div class="logo pull-left"><img src="../images/logo.png"></div>
+                <div class="logo f-left"><img src="../images/logo.png"></div>
             </div>
         </div>
         <div class="login-wrap">
@@ -11,16 +11,16 @@
                     <h2>登录</h2>
                 </div>
                 <div class="input-field">
-                    <input id="usercode" type="text" autocomplete="off" spellcheck="false" placeholder="手机号" maxlength="11" v-model="usercode">
+                    <el-input v-model="usercode" placeholder="手机号" maxlength="11"></el-input>
                 </div>
                 <div class="input-field">
-                    <input id="password" type="password" autocomplete="off" spellcheck="false" placeholder="密码" v-model="password" @keyup.13="login">
+                    <el-input type="password" v-model="password" placeholder="密码" maxlength="11" @keyup.13="login"></el-input>
                 </div>
                 <div class="action">
                     <div class="clearfix">
                         <input id="remember" class="remember" type="checkbox" name="remember" checked="checked" v-model="checked" @click="isCheck()">
                         <label for="remember">一个月内免登录</label>
-                        <label class="pull-right">
+                        <label class="f-right">
                             <a class="linelight" href="forget.html">忘记密码</a>							
                         </label>
                     </div>
@@ -31,16 +31,18 @@
                     <a class="linelight" href="register.html">立即注册</a>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
 </template>
 
-<script>
 
-    import '../assets/bootstrap/css/bootstrap.min.css'
+
+<script>
+    // import '../assets/bootstrap/css/bootstrap.min.css'
     import '../css/reset.css'
     import '../css/zx.css'
     import '../css/login.css'
+    // import 
     import {is_mobile,isNull} from '../js/util.js'
     import Api from '../api/api.js'
     let api = new Api();
@@ -51,19 +53,27 @@
                 password: '',
                 usercode: '',
                 checked:'checked',
-                status:true
+                status:true,
+                dialogVisible: false
             }
         },
         methods:{
+            handleClose(done) {
+                this.$confirm('确认关闭？')
+                .then(_ => {
+                    done();
+                })
+                .catch(_ => {});
+            },
             isCheck(){
                 if(!is_mobile(this.$data.usercode) || isNull(this.$data.usercode)){
                     this.status = false;
-                    alert("手机号格式不正确");
+                    this.$message.error('手机号格式不正确');
                     return false;
                 }
                 else if(isNull(this.$data.password)){
                     this.status = false;
-                    alert("密码格式不正确");
+                    this.$message.error('密码格式不正确');
                     return false;
                 }
                 this.status = true;
@@ -81,8 +91,7 @@
                 .then((res) =>{
                     alert(res.msg)
                     if(res.code == 1){
-                        // alert("登录成功");
-                        this.$router.replace('backend')
+                        this.$router.to('backend')
                     }else{
                         // alert("登录成功");
                     }
@@ -99,3 +108,19 @@
         }
     }
 </script>
+
+<style lang="less">
+    .btn-block{
+        display:block;
+    }
+    .btn-lg{
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+    }
+    .wfull{
+        width:100%;
+        height:100%;
+    }
+</style>
