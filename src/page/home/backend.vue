@@ -7,8 +7,8 @@
     </section>
 </template>
 <script>
-    import Leftbar from './leftbar.vue'
-    import Topbar from './topbar.vue'
+    import Leftbar from '../../components/leftbar.vue'
+    import Topbar from '../../components/topbar.vue'
     export default{
         components: {
             Leftbar,

@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Modal from '@/components/modal'
 import Login from '../page/login';
-import Backend from '../page/backend';
+import Backend from '../page/home/backend';
 import Test from '../page/test';
 import Main from '../page/main';
 Vue.use(Router)
