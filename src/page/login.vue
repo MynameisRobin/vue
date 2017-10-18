@@ -37,8 +37,6 @@
     </div>
 </template>
 
-
-
 <script>
     import '../css/reset.css'
     import '../css/zx.css'
