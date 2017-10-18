@@ -7,29 +7,31 @@
         </div>
         <div class="login-wrap">
             <div class="base-login">
-                <div class="input-field">
-                    <h2>登录</h2>
-                </div>
-                <div class="input-field">
-                    <el-input v-model="usercode" placeholder="手机号"></el-input>
-                </div>
-                <div class="input-field">
-                    <el-input type="password" v-model="password" placeholder="密码" @keyup.13="login"></el-input>
-                </div>
-                <div class="action">
-                    <div class="clearfix">
-                        <input id="remember" class="remember" type="checkbox" name="remember" checked="checked" v-model="checked" @click="isCheck()">
-                        <label for="remember">一个月内免登录</label>
-                        <label class="f-right">
-                            <a class="linelight" href="forget.html">忘记密码</a>							
-                        </label>
+                <el-form :model="loginForm" :rules="rules" ref="loginForm" class="demo-ruleForm">
+                    <div class="input-field">
+                        <h2>登录</h2>
                     </div>
-                </div>
-                <a href="javascript:;" id="sendSubmit" class="btn btn-block btn-lg login-btn btn-submit" @click="login">登录</a>
-                <div class="clearfix relex">
-                    <span>还没有智享头条账号，您可以</span>
-                    <a class="linelight" href="register.html">立即注册</a>
-                </div>
+                    <el-form-item label="" prop="usercode">
+                        <el-input v-model="loginForm.usercode" placeholder="手机号"></el-input>
+                    </el-form-item>
+                    <el-form-item label="" prop="password">
+                        <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码" @keyup.13="login"></el-input>
+                    </el-form-item>
+                    <div class="action">
+                        <div class="clearfix">  
+                            <input id="remember" class="remember" type="checkbox" name="remember" checked="checked" v-model="checked" @click="submitForm('loginForm')">
+                            <label for="remember">一个月内免登录</label>
+                            <label class="f-right">
+                                <a class="linelight" href="forget.html">忘记密码</a>							
+                            </label>
+                        </div>
+                    </div>
+                    <a href="javascript:;" id="sendSubmit" class="btn btn-block btn-lg login-btn btn-submit" @click="submitForm('loginForm')">登录</a>
+                    <div class="clearfix relex">
+                        <span>还没有智享头条账号，您可以</span>
+                        <a class="linelight" href="register.html">立即注册</a>
+                    </div>
+                </el-form>
             </div>
         </div> 
     </div>
@@ -38,7 +40,6 @@
 
 
 <script>
-    // import '../assets/bootstrap/css/bootstrap.min.css'
     import '../css/reset.css'
     import '../css/zx.css'
     import {is_mobile,isNull} from '../js/util.js'
@@ -47,54 +48,84 @@
     export default {
         name: 'Login',
         data() {
+            let isMobile = (rule, value, callback) =>{
+                if (isNull(value)) {
+                    callback(new Error('请输入手机号'));
+                } 
+                else{
+                    console.log(is_mobile(value))if (is_mobile(value)) {
+                        this.$refs.loginForm.validateField('usercode');
+                    }else{
+                        callback(new Error('手机号格式不正确'));
+                    }
+                    callback();
+                }
+            };
             return {
-                password: '',
-                usercode: '',
-                checked:'checked',
-                status:true,
-                dialogVisible: false
+                checked:true,
+                loginForm: {
+                    usercode:'',
+                    password:'',
+                },
+                rules: {
+                    usercode: [
+                        { validator:isMobile,trigger:'blur'}
+                    ],
+                    password:[
+                        { required: true, message: '请输入密码', trigger: 'blur' }
+                    ]
+                }
             }
         },
         methods:{
-            handleClose(done) {
-                this.$confirm('确认关闭？')
-                .then(_ => {
-                    done();
-                })
-                .catch(_ => {});
-            },
-            isCheck(){
-                if(!is_mobile(this.$data.usercode) || isNull(this.$data.usercode)){
-                    this.status = false;
-                    this.$message.error('手机号格式不正确');
-                    return false;
-                }
-                else if(isNull(this.$data.password)){
-                    this.status = false;
-                    this.$message.error('密码格式不正确');
-                    return false;
-                }
-                this.status = true;
-            },
-            login() {
-                var _this = this;
-                this.isCheck();
-                if(!this.status){
-                    return false;
-                }
-                api.reqNewAjaxAsync(api.apiUrl.login,{
-                    password:this.$data.password,
-                    usercode:this.$data.usercode,
-                })
-                .then((res) =>{
-                    alert(res.msg)
-                    if(res.code == 1){
-                        this.$router.to('backend')
-                    }else{
-                        // alert("登录成功");
+            submitForm(formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        api.reqNewAjaxAsync(api.apiUrl.login,{
+                            password:this.loginForm.password,
+                            usercode:this.loginForm.usercode,
+                        })
+                        .then((res) =>{
+                            if(res.code == 1){
+                                // this.$router.to('backend')
+                            }else{
+                                this.$notify.error({
+                                    title: '错误',
+                                    message: '这是一条错误的提示消息'
+                                });
+                            }
+                        })
+                    } else {
+                        console.log('error submit!!');
+                        return false;
                     }
-                })
-            }
+                });
+            },
+            // resetForm(formName) {
+            //     this.$refs[formName].resetFields();
+            // },
+            // isCheck(){
+            //     if(!is_mobile(this.$data.usercode) || isNull(this.$data.usercode)){
+            //         this.status = false;
+            //         this.$message.error('手机号格式不正确');
+            //         this.tip = '手机号格式不正确';
+            //         return false;
+            //     }
+            //     else if(isNull(this.$data.password)){
+            //         this.status = false;
+            //         this.$message.error('密码格式不正确');
+            //         this.tip = '密码格式不正确';
+            //         return false;
+            //     }
+            //     this.status = true;
+            // },
+            // login() {
+            //     var _this = this;
+            //     this.isCheck();
+            //     if(!this.status){
+            //         return false;
+            //     }
+            // }
             
         },
         mounted(){
@@ -126,36 +157,6 @@
         background-image: url(../images/login_bg.jpg);
         background-repeat: no-repeat;
         background-position: top center;
-    }
-
-    .login-wrap,
-    .register-wrap {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 456px;
-        padding: 28px 50px 38px;
-        background-color: rgba(255, 255, 255, .6);
-        transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-    }
-    input[type='text'],
-    input[type='password'] {
-        display: block;
-        width: 100%;
-        background: #fff;
-        border: none;
-        outline: none;
-        padding: 11px 8px;
-        border-radius: 4px;
-    }
-
-    input[type='text']:focus,
-    input[type='password']:focus {
-        box-shadow: 0 0 1px 1px #ff8b6f;
-        -webkit-box-shadow: 0 0 1px 1px #ff8b6f;
-        -moz-box-shadow: 0 0 1px 1px #ff8b6f;
     }
 
     h2 {
