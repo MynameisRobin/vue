@@ -2,7 +2,11 @@
     <div class="wrapper">
         <div class="header">
             <div class="header-inner clearfix">
-                <div class="logo fl"><img src="../../static/images/logo.png"></div>
+                <div class="logo fl">
+                    <a href="/">
+                        <img src="../../static/images/logo.png">
+                    </a>
+                </div>
             </div>
         </div>
         <div class="login-wrap clearfix">
@@ -19,7 +23,7 @@
                     </div>
                     <div class="mt10">
                         <div class="clearfix">
-                            <input id="remember" class="remember" type="checkbox" name="remember" checked="checked" v-model="checked">
+                            <input class="remember" type="checkbox" name="remember" checked="checked" v-model="checked">
                             <label for="remember">一个月内免登录</label>
                             <label class="fr">
                                 <a class="linelight" href="forget.html">忘记密码</a>
@@ -42,6 +46,7 @@
 <script>
 import { is_mobile, isNull } from '../js/util.js'
 import Api from '../api/api.js'
+import { getTheme } from '../theme/';
 let api = new Api();
 export default {
     name: 'Login',
@@ -50,14 +55,14 @@ export default {
         let isMobile = (rule, value, callback) => {
             if (isNull(value)) {
                 callback(new Error('请输入手机号'));
-            }
-            else if (!is_mobile(value)) {
+            } else if (!is_mobile(value)) {
                 callback(new Error('手机号格式不正确'));
             } else {
                 callback();
             }
         }
         return {
+            theme: "blue",
             checked: true,
             loginForm: {
                 usercode: '',//用户名
@@ -76,23 +81,24 @@ export default {
     methods: {
         // 提交form表单
         submitForm(formName) {
+            var _this = this;
             this.$refs[formName].validate((valid) => {
                 if (valid) {
                     api.reqNewAjaxAsync(api.apiUrl.login, {
-                        password: this.loginForm.password,
-                        usercode: this.loginForm.usercode,
+                        password: _this.loginForm.password,
+                        usercode: _this.loginForm.usercode,
                     })
                         .then((res) => {
                             let request = res.data;
                             if (res.code == 1) {
-                                this.$notify.success({
-                                    message: res.msg
-                                });
-                                this.$router.to('backend');
-                                localStorage.setItem("apikey",request.apikey);
-                                localStorage.setItem("scSysUser",request.scSysUser);
+                                // _this.$notify.success({
+                                //     message: res.msg
+                                // });
+                                localStorage.setItem("apikey", request.apikey);
+                                localStorage.setItem("scSysUser", request.scSysUser);
+                                this.$router.replace('backend');
                             } else {
-                                this.$notify.error({
+                                _this.$notify.error({
                                     message: res.msg
                                 });
                             }
@@ -105,6 +111,7 @@ export default {
         },
     },
     mounted() {
+        getTheme("orange")
         // this.isCheck();
         // var isLogin = true
         // if (isLogin) {
@@ -115,7 +122,6 @@ export default {
 </script>
 
 <style lang="less" scope>
-@import '../theme/default.less';
 html,
 body,
 .wrapper {
@@ -125,17 +131,5 @@ body,
 
 .wrapper {
     background: url(../../static/images/login_bg.jpg) top center no-repeat;
-}
-
-h2 {
-    font-size: 24px;
-    color: @color;
-}
-
-.btn-lg {
-    padding: 10px 0;
-    font-size: 18px;
-    line-height: 1.3333333;
-    border-radius: 6px;
 }
 </style>
