@@ -395,28 +395,6 @@ export function getCity() {
     });
 }
 
-function showCity() {
-    var pid = $('select[name="province"] option:selected').val();
-    reqAjaxAsync("cms_back/selectByParentCode", "{'parentCode':'" + pid + "'}").done(function(re) {
-        var city = re.data || [];
-        var cityHtml = '';
-        if (city.length > 0) {
-            for (var c = 0; c < city.length; c++) {
-                cityHtml += '<option value="' + city[c].code + '">';
-                cityHtml += city[c].areaname;
-                cityHtml += '</option>';
-            }
-            $('select[name="city"]').html(cityHtml).css({
-                'opacity': 1
-            });
-        } else {
-            $('select[name="city"]').html(cityHtml).css({
-                'opacity': 0
-            });
-        }
-    });
-}
-
 //上传头像方法
 
 var uploadJson = {

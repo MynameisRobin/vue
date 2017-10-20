@@ -3,9 +3,7 @@
         <div class="header">
             <div class="header-inner clearfix">
                 <div class="logo fl">
-                    <a href="/">
-                        <img src="../../static/images/logo.png">
-                    </a>
+                    <img src="../../static/images/logo.png">
                 </div>
             </div>
         </div>
@@ -23,10 +21,9 @@
                     </div>
                     <div class="mt10">
                         <div class="clearfix">
-                            <input class="remember" type="checkbox" name="remember" checked="checked" v-model="checked">
-                            <label for="remember">一个月内免登录</label>
+                            <el-checkbox v-model="checked" class="remember">一个月内免登录</el-checkbox>
                             <label class="fr">
-                                <a class="linelight" href="forget.html">忘记密码</a>
+                                <router-link :to="{ name: '/forget'}" class="linelight orange">忘记密码</router-link>
                             </label>
                         </div>
                     </div>
@@ -35,7 +32,7 @@
                     </div>
                     <div class="clearfix mt10">
                         <span>还没有智享头条账号，您可以</span>
-                        <a class="linelight" href="register.html">立即注册</a>
+                        <router-link :to="{ name: '/register'}" class="linelight orange">立即注册</router-link>
                     </div>
                 </el-form>
             </div>
@@ -44,92 +41,86 @@
 </template>
 
 <script>
-import { is_mobile, isNull } from '../js/util.js'
-import Api from '../api/api.js'
-import { getTheme } from '../theme/';
+import { is_mobile, isNull } from "../js/util.js";
+import Api from "../api/api.js";
+import { getTheme } from "../theme/";
 let api = new Api();
 export default {
-    name: 'Login',
-    data() {
-        // 手机验证方法
-        let isMobile = (rule, value, callback) => {
-            if (isNull(value)) {
-                callback(new Error('请输入手机号'));
-            } else if (!is_mobile(value)) {
-                callback(new Error('手机号格式不正确'));
-            } else {
-                callback();
-            }
-        }
-        return {
-            theme: "blue",
-            checked: true,
-            loginForm: {
-                usercode: '',//用户名
-                password: '',//密码
-            },
-            rules: {
-                usercode: [
-                    { validator: isMobile, trigger: 'blur' }
-                ],
-                password: [
-                    { required: true, message: '请输入密码', trigger: 'blur,change' }
-                ]
-            }
-        }
-    },
-    methods: {
-        // 提交form表单
-        submitForm(formName) {
-            var _this = this;
-            this.$refs[formName].validate((valid) => {
-                if (valid) {
-                    api.reqNewAjaxAsync(api.apiUrl.login, {
-                        password: _this.loginForm.password,
-                        usercode: _this.loginForm.usercode,
-                    })
-                        .then((res) => {
-                            let request = res.data;
-                            if (res.code == 1) {
-                                // _this.$notify.success({
-                                //     message: res.msg
-                                // });
-                                localStorage.setItem("apikey", request.apikey);
-                                localStorage.setItem("scSysUser", request.scSysUser);
-                                this.$router.replace('backend');
-                            } else {
-                                _this.$notify.error({
-                                    message: res.msg
-                                });
-                            }
-                        })
-                } else {
-                    console.log('error submit!!');
-                    return false;
-                }
+  name: "Login",
+  data() {
+    // 手机验证方法
+    let isMobile = (rule, value, callback) => {
+      if (isNull(value)) {
+        callback(new Error("请输入手机号"));
+      } else if (!is_mobile(value)) {
+        callback(new Error("手机号格式不正确"));
+      } else {
+        callback();
+      }
+    };
+    return {
+      theme: "orange",
+      checked: true,
+      loginForm: {
+        usercode: "", //用户名
+        password: "" //密码
+      },
+      rules: {
+        usercode: [{ validator: isMobile, trigger: "blur" }],
+        password: [{ required: true, message: "请输入密码", trigger: "blur,change" }]
+      }
+    };
+  },
+  methods: {
+    // 提交form表单
+    submitForm(formName) {
+      var _this = this;
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          api
+            .reqNewAjaxAsync(api.apiUrl.login, {
+              password: _this.loginForm.password,
+              usercode: _this.loginForm.usercode
+            })
+            .then(res => {
+              let request = res.data;
+              if (res.code == 1) {
+                // _this.$notify.success({
+                //     message: res.msg
+                // });
+                localStorage.setItem("apikey", request.apikey);
+                localStorage.setItem("scSysUser", request.scSysUser);
+                this.$router.push("backend");
+              } else {
+                _this.$notify.error({
+                  message: res.msg
+                });
+              }
             });
-        },
-    },
-    mounted() {
-        getTheme("orange")
-        // this.isCheck();
-        // var isLogin = true
-        // if (isLogin) {
-        //     this.$router.replace('backend')
-        // }
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
     }
-}
+  },
+  created() {
+    // 用橙色主题
+    getTheme(this.theme);
+  },
+  mounted() {}
+};
 </script>
 
 <style lang="less" scope>
 html,
 body,
 .wrapper {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .wrapper {
-    background: url(../../static/images/login_bg.jpg) top center no-repeat;
+  background: url(../../static/images/login_bg.jpg) top center no-repeat;
 }
 </style>
