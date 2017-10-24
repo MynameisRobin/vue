@@ -5,12 +5,24 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import '../theme/index.css'
+import {
+    getTheme
+} from "./theme/";
 Vue.use(ElementUI);
 Vue.config.productionTip = false
-/* eslint-disable no-new */
+    /* eslint-disable no-new */
 new Vue({
     el: '#app',
     router,
     template: '<App/>',
+    data() {
+        return {
+            theme: "orange"
+        }
+    },
+    created() {
+        // 用橙色主题
+        getTheme(this.theme);
+    },
     render: h => h(App)
 })

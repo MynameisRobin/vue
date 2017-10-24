@@ -5,64 +5,60 @@
         <div class="modal_div">
             <p class="modal_head">
                 <i @click="s = false"></i >
-            </p>
-            <h1>{{title}}</h1>
-            <div class="modal_con">
-                <slot></slot>
-            </div>
-            <div class="modal_btn">
-                <a @click="s = false">取消</a>
-                <a @click="ok"><b>确定</b></a>
+                </p>
+                <h1>{{title}}</h1>
+                <div class="modal_con">
+                    <slot></slot>
+                </div>
+                <div class="modal_btn">
+                    <a @click="s = false">取消</a>
+                    <a @click="ok"><b>确定</b></a>
+                </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>
     export default {
-        name:'Modal',
-        props : ['title'],
-        data (){
+        name: 'Modal',
+        props: ['title'],
+        data() {
             return {
-                s : true
+                s: true
             }
         },
         methods: {
-            ok(){
+            ok() {
                 //this.s = !this.s;
                 this.$emit('on-ok');
             },
-            show(){
+            show() {
                 this.s = !this.s;
             }
         },
-        created (){
-
+        created() {
         }
     }
-
 </script>
 
 <style scoped lang="scss">
-    .modal{
+    .modal {
         position: fixed;
         top: 0;
         left: 0;
         z-index: 997;
         width: 100%;
         height: 100%;
-
-        .modal_bg{
+        .modal_bg {
             position: absolute;
             top: 0;
             left: 0;
             z-index: 998;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,.5);
+            background: rgba(0, 0, 0, .5);
         }
-
-        .modal_div{
+        .modal_div {
             position: absolute;
             top: 50%;
             left: 10%;
@@ -72,41 +68,34 @@
             background: #fff;
             border-radius: 3px;
             transform: translate(0, -50%);
-
-            h1{
+            h1 {
                 margin: 0 0 17px;
                 color: #000;
                 font-size: 17px;
                 line-height: 24px;
                 text-align: center;
             }
-
-            .modal_head{
+            .modal_head {
                 margin: 0;
                 padding: 9px 9px 0;
                 height: 27px;
-
-                i{
+                i {
                     float: right;
                     display: block;
                     width: 18px;
-                    height: 18px;
-                    // background: url(../../assets/img/x@3x.png) no-repeat center / 25px;
+                    height: 18px; // background: url(../../assets/img/x@3x.png) no-repeat center / 25px;
                 }
             }
         }
-
     }
-    .modal_con{
+    .modal_con {
         padding: 0 13px 15px;
     }
-
-    .modal_btn{
+    .modal_btn {
         display: flex;
         height: 49px;
         border-top: 1px solid #e7e7e7;
-
-        a{
+        a {
             flex: 1;
             position: relative;
             height: 100%;
@@ -114,12 +103,11 @@
             line-height: 49px;
             font-size: 15px;
             text-align: center;
-
-            &:first-child:before{
+            &:first-child:before {
                 position: absolute;
                 display: block;
                 content: '';
-                top:0;
+                top: 0;
                 right: 0;
                 width: 1px;
                 height: 100%;
@@ -127,5 +115,4 @@
             }
         }
     }
-
-</style> 
+</style>
