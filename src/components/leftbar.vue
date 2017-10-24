@@ -1,11 +1,9 @@
 <template>
-    <section>
-        左侧菜单
-    </section>
+  
 </template>
+
 <script>
-    export default{}
+export default {
+  name: "Leftbar",
+};
 </script>
-<style lang="">
-    
-</style>

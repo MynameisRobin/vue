@@ -3,13 +3,13 @@
         <div class="header">
             <div class="header-inner clearfix">
                 <div class="logo fl">
-                    <img src="../../static/images/logo.png">
+                    <img src="/static/images/logo.png">
                 </div>
             </div>
         </div>
         <div class="login-wrap clearfix">
             <div class="base-login">
-                <el-form :model="loginForm" status-icon :rules="rules" ref="loginForm" class="demo-ruleForm">
+                <el-form :model="loginForm" :rules="rules" ref="loginForm" class="demo-ruleForm">
                     <h2 class="text-center">登录</h2>
                     <div class="mt10">
                         <el-form-item label="" prop="usercode">
@@ -19,20 +19,18 @@
                             <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码" @keyup.native.13="submitForm('loginForm')"></el-input>
                         </el-form-item>
                     </div>
-                    <div class="mt10">
-                        <div class="clearfix">
-                            <el-checkbox v-model="checked" class="remember">一个月内免登录</el-checkbox>
-                            <label class="fr">
-                                <router-link :to="{ name: '/forget'}" class="linelight orange">忘记密码</router-link>
-                            </label>
-                        </div>
+                    <div class="mt10 clearfix">
+                        <el-checkbox v-model="checked" class="remember">一个月内免登录</el-checkbox>
+                        <label class="fr">
+                            <router-link :to="{ name: 'forget'}" class="linelight orange">忘记密码</router-link>
+                        </label>
                     </div>
                     <div class="mt10">
                         <a href="javascript:;" id="sendSubmit" class="btn dis-b btn-lg btn-submit wfull mt10" @click="submitForm('loginForm')">登录</a>
                     </div>
                     <div class="clearfix mt10">
-                        <span>还没有智享头条账号，您可以</span>
-                        <router-link :to="{ name: '/register'}" class="linelight orange">立即注册</router-link>
+                        <span>还没有智享头条账号，您可以</span> 
+                        <router-link :to="{ name: 'register'}" class="linelight orange">立即注册</router-link>
                     </div>
                 </el-form>
             </div>
@@ -41,6 +39,7 @@
 </template>
 
 <script>
+/**登录 */
 import { is_mobile, isNull } from "../js/util.js";
 import Api from "../api/api.js";
 import { getTheme } from "../theme/";
@@ -85,11 +84,11 @@ export default {
             .then(res => {
               let request = res.data;
               if (res.code == 1) {
-                // _this.$notify.success({
-                //     message: res.msg
-                // });
                 localStorage.setItem("apikey", request.apikey);
-                localStorage.setItem("scSysUser", request.scSysUser);
+                localStorage.setItem(
+                  "scSysUser",
+                  JSON.stringify(request.scSysUser)
+                );
                 this.$router.push("backend");
               } else {
                 _this.$notify.error({

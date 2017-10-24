@@ -1,12 +1,14 @@
 <template>
     <section>
-        123123
+        注册
     </section>
 </template>
 <script>
-// 主页
-    export default{}
+export default {
+  name: "Register",
+  data() {}
+};
 </script>
 <style lang="">
-    
+
 </style>

@@ -3,9 +3,10 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Modal from '@/components/modal'
 import Login from '../page/login';
+import Register from '../page/register';
+import Forget from '../page/forget';
 import Backend from '../page/home/backend';
 import Test from '../page/test';
-import Main from '../page/main';
 Vue.use(Router)
 
 const page404 = {
@@ -20,23 +21,29 @@ const router = new Router({
     },
     {
         path: '/register',
-        name: 'Login',
-        component: Login
+        name: 'register',
+        component: Register
+    },
+    {
+        path: '/forget',
+        name: 'forget',
+        component: Forget
     },
     {
         path: '/backend',
-        name: 'Backend',
+        name: 'backend',
         component: Backend,
-        children: [{
+        children: [
+        {
             path: '',
-            component: Main
+            component: Test
         },
         {
             path: 'test',
             component: Test
         },
         {
-            path: '/hello',
+            path: 'hello',
             name: 'Hello',
             component: HelloWorld
         }],
@@ -59,14 +66,14 @@ const router = new Router({
 // 跳转页面前检测是否登录！
 router.beforeEach((to, from, next) => {
     var token = localStorage.getItem('scSysUser');
-    if (token || to.path == '/login') {
+    if (token) {
         console.log('已登录，跳转到' + to.path)
         next()
     }
     else {
         console.log('缓存中未检测到token，跳转到登录页面')
-        router.push({
-            path: '/login'
+        this.push({
+            path: 'login'
         });
     }
 })

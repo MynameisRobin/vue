@@ -8,7 +8,7 @@ export default class Api {
         this.apiUrl = {
             selectAdvList: "selectAdvList",
             login: "user/login",
-            "queryReArticleHotList":"cms_new/queryReArticleHotList"
+            queryReArticleHotList:"cms_new/queryReArticleHotList"
         };
     }
     reqNewAjaxAsync(url, data) {
