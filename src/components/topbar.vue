@@ -16,9 +16,6 @@
 <script>
     export default {
         name: "Topbar",
-        data() {},
-        methods: {},
-        created() {},
     }
 </script>
 <style lang="less" scope>

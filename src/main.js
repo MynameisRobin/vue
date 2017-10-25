@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
-import '../theme/index.css'
+// import '../theme/index.css'
 import './theme/blue.less';
 // import {
 //     getTheme

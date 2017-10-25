@@ -2,8 +2,8 @@
 	<div>
 		<Topbar></Topbar>
 		<Leftbar></Leftbar>
-		<div class="right-main">
-			123123
+		<div class="right-main fl">
+			我是主体内容
 		</div>
 	</div>
 </template>
@@ -12,16 +12,11 @@
 	import Topbar from "../../components/topbar.vue";
 	export default {
 		name: "backend",
-		data() {
-			return {
-				status:false
-			}
-		},
 		components: {
 			Leftbar,
 			Topbar
-		},
-	};
+		}
+	}
 </script>
 <style lang="less">
 	body {

@@ -25,7 +25,6 @@
     color: @color;
 }
 
-
 // 公用头部
 .header {
     background: @color;
@@ -69,6 +68,42 @@
     width: 64px;
     height: 3px;
     background-color: @foucusColor;
+}
+
+// 公用左侧菜单
+.sidebar .sidebar-collapse {
+    padding-top: 18px;
+}
+
+.sidebar .sidebar-collapse>li {
+    line-height: 40px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.sidebar .sidebar-collapse>li>a {
+    display: block;
+    color: #888888;
+    padding-left: 45px;
+}
+
+.sidebar .sidebar-collapse>li i.fa {
+    font-size: 16px;
+    margin-right: 12px;
+}
+
+.sidebar .sidebar-sub>li {
+    text-align: center;
+}
+
+.sidebar .sidebar-collapse>li a,
+.sidebar .sidebar-sub>li a.active {
+    display: block;
+}
+
+.sidebar .sidebar-collapse>li a.active,
+.sidebar .sidebar-sub>li a.active {
+    color: #fff;
+    background: @color;
 }
 
 .in-bd .bgGreen,

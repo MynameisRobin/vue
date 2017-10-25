@@ -107,7 +107,7 @@
     color: #ddd;
 }
 .el-date-table td.today {
-    color: #1E9FFF;
+    color: #409EFF;
     position: relative;
 }
 .el-date-table td.today:before {
@@ -117,20 +117,20 @@
     right: 0px;
     width: 0;
     height: 0;
-    border-top: 0.5em solid #1E9FFF;
+    border-top: 0.5em solid #409EFF;
     border-left: .5em solid transparent;
 }
 .el-date-table td.available:hover {
-    background-color: rgb(228, 232, 241);
+    background-color: rgb(228, 231, 241);
 }
 .el-date-table td.in-range {
-    background-color: rgb(210, 236, 255);
+    background-color: rgb(217, 236, 255);
 }
 .el-date-table td.in-range:hover {
-    background-color: rgb(174, 220, 255);
+    background-color: rgb(186, 220, 255);
 }
 .el-date-table td.current:not(.disabled), .el-date-table td.start-date, .el-date-table td.end-date {
-    background-color: #1E9FFF !important;
+    background-color: #409EFF !important;
     color: #fff;
 }
 .el-date-table td.disabled {
@@ -141,19 +141,19 @@
 }
 .el-date-table td.week {
     font-size: 80%;
-    color: rgb(131, 145, 165);
+    color: rgb(131, 143, 165);
 }
 .el-date-table th {
     padding: 5px;
-    color: rgb(131, 145, 165);
+    color: rgb(131, 143, 165);
     font-weight: 400;
 }
 .el-date-table.is-week-mode .el-date-table__row {}
 .el-date-table.is-week-mode .el-date-table__row:hover {
-    background-color: rgb(228, 232, 241);
+    background-color: rgb(228, 231, 241);
 }
 .el-date-table.is-week-mode .el-date-table__row.current {
-    background-color: rgb(210, 236, 255);
+    background-color: rgb(217, 236, 255);
 }
 :root {
     /* Transition
@@ -260,10 +260,10 @@
     height: 32px;
     display: block;
     line-height: 32px;
-    color: rgb(72, 87, 106);
+    color: rgb(72, 85, 106);
 }
 .el-month-table td .cell:hover {
-    background-color: rgb(228, 232, 241);
+    background-color: rgb(228, 231, 241);
 }
 .el-month-table td.disabled .cell {
     background-color: #f4f4f4;
@@ -271,7 +271,7 @@
     color: #ccc;
 }
 .el-month-table td.current:not(.disabled) .cell {
-    background-color: #1E9FFF !important;
+    background-color: #409EFF !important;
     color: #fff;
 }
 :root {
@@ -370,7 +370,7 @@
     border-collapse: collapse;
 }
 .el-year-table .el-icon {
-    color: rgb(151, 168, 190);
+    color: rgb(151, 165, 190);
 }
 .el-year-table td {
     text-align: center;
@@ -382,10 +382,10 @@
     height: 32px;
     display: block;
     line-height: 32px;
-    color: rgb(72, 87, 106);
+    color: rgb(72, 85, 106);
 }
 .el-year-table td .cell:hover {
-    background-color: rgb(228, 232, 241);
+    background-color: rgb(228, 231, 241);
 }
 .el-year-table td.disabled .cell {
     background-color: #f4f4f4;
@@ -393,7 +393,7 @@
     color: #ccc;
 }
 .el-year-table td.current:not(.disabled) .cell {
-    background-color: #1E9FFF !important;
+    background-color: #409EFF !important;
     color: #fff;
 }
 :root {
@@ -522,14 +522,14 @@
     font-size: 12px;
 }
 .el-time-spinner__item:hover:not(.disabled):not(.active) {
-    background: rgb(228, 232, 241);
+    background: rgb(228, 231, 241);
     cursor: pointer;
 }
 .el-time-spinner__item.active:not(.disabled) {
     color: #fff;
 }
 .el-time-spinner__item.disabled {
-    color: rgb(209, 219, 229);
+    color: rgb(209, 217, 229);
     cursor: not-allowed;
 }
 :root {
@@ -990,8 +990,8 @@
   --------------------------*/
 }
 .el-picker-panel {
-    color: rgb(72, 87, 106);
-    border: 1px solid rgb(209, 219, 229);
+    color: rgb(72, 85, 106);
+    border: 1px solid rgb(209, 217, 229);
     box-shadow: 0 2px 6px #ccc;
     background: #fff;
     border-radius: 2px;
@@ -1022,18 +1022,18 @@
     background-color: transparent;
     line-height: 28px;
     font-size: 14px;
-    color: rgb(72, 87, 106);
+    color: rgb(72, 85, 106);
     padding-left: 12px;
     text-align: left;
     outline: none;
     cursor: pointer;
 }
 .el-picker-panel__shortcut:hover {
-    background-color: rgb(228, 232, 241);
+    background-color: rgb(228, 231, 241);
 }
 .el-picker-panel__shortcut.active {
     background-color: #e6f1fe;
-    color: #1E9FFF;
+    color: #409EFF;
 }
 .el-picker-panel__btn {
     border: 1px solid #dcdcdc;
@@ -1052,7 +1052,7 @@
 }
 .el-picker-panel__icon-btn {
     font-size: 12px;
-    color: rgb(151, 168, 190);
+    color: rgb(151, 165, 190);
     border: 0;
     background: transparent;
     cursor: pointer;
@@ -1060,11 +1060,11 @@
     margin-top: 3px;
 }
 .el-picker-panel__icon-btn:hover {
-    color: #1E9FFF;
+    color: #409EFF;
 }
 .el-picker-panel__link-btn {
     cursor: pointer;
-    color: #1E9FFF;
+    color: #409EFF;
     text-decoration: none;
     padding: 15px;
     font-size: 12px;
@@ -1128,10 +1128,10 @@
     cursor: pointer;
 }
 .el-date-picker__header-label:hover {
-    color: #1E9FFF;
+    color: #409EFF;
 }
 .el-date-picker__header-label.active {
-    color: #1E9FFF;
+    color: #409EFF;
 }
 .el-date-picker__prev-btn {
     float: left;
@@ -1310,7 +1310,7 @@
     font-size: 20px;
     vertical-align: middle;
     display: table-cell;
-    color: rgb(151, 168, 190);
+    color: rgb(151, 165, 190);
 }
 .el-date-range-picker__time-picker-wrap {
     position: relative;
@@ -1437,7 +1437,7 @@
 }
 .el-time-range-picker__body {
     border-radius: 2px;
-    border: 1px solid rgb(209, 219, 229);
+    border: 1px solid rgb(209, 217, 229);
 }
 :root {
     /* Transition
@@ -1531,7 +1531,7 @@
 }
 .el-time-panel {
     margin: 5px 0;
-    border: solid 1px rgb(209, 219, 229);
+    border: solid 1px rgb(209, 217, 229);
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     border-radius: 2px;
@@ -1557,7 +1557,7 @@
     font-size: 14px;
     margin-top: -15px;
     line-height: 16px;
-    background-color: #1E9FFF;
+    background-color: #409EFF;
     height: 32px;
     z-index: -1;
     left: 0;
@@ -1598,11 +1598,11 @@
     background-color: transparent;
     outline: none;
     font-size: 12px;
-    color: rgb(131, 145, 165);
+    color: rgb(131, 143, 165);
 }
 .el-time-panel__btn.confirm {
     font-weight: 800;
-    color: #1E9FFF;
+    color: #409EFF;
 }
 @charset "UTF-8";
 :root {
@@ -1703,19 +1703,19 @@
 }
 .el-input.is-disabled .el-input__inner {
     background-color: rgb(238, 241, 246);
-    border-color: rgb(209, 219, 229);
+    border-color: rgb(209, 217, 229);
     color: #bbb;
     cursor: not-allowed;
 }
 .el-input.is-disabled .el-input__inner:-ms-input-placeholder {
-    color: rgb(191, 203, 217);
+    color: rgb(191, 201, 217);
 }
 .el-input.is-disabled .el-input__inner::placeholder {
-    color: rgb(191, 203, 217);
+    color: rgb(191, 201, 217);
 }
 .el-input.is-active .el-input__inner {
     outline: none;
-    border-color: #1E9FFF;
+    border-color: #409EFF;
 }
 .el-input__inner {
     -webkit-appearance: none;
@@ -1724,9 +1724,9 @@
     background-color: #fff;
     background-image: none;
     border-radius: 4px;
-    border: 1px solid rgb(191, 203, 217);
+    border: 1px solid rgb(191, 201, 217);
     box-sizing: border-box;
-    color: rgb(31, 45, 61);
+    color: rgb(31, 43, 61);
     display: inline-block;
     font-size: inherit;
     height: 36px;
@@ -1737,17 +1737,17 @@
     width: 100%;
 }
 .el-input__inner:-ms-input-placeholder {
-    color: rgb(151, 168, 190);
+    color: rgb(151, 165, 190);
 }
 .el-input__inner::placeholder {
-    color: rgb(151, 168, 190);
+    color: rgb(151, 165, 190);
 }
 .el-input__inner:hover {
-    border-color: rgb(131, 145, 165);
+    border-color: rgb(131, 143, 165);
 }
 .el-input__inner:focus {
     outline: none;
-    border-color: #1E9FFF;
+    border-color: #409EFF;
 }
 .el-input__icon {
     position: absolute;
@@ -1756,7 +1756,7 @@
     right: 0;
     top: 0;
     text-align: center;
-    color: rgb(191, 203, 217);
+    color: rgb(191, 201, 217);
     transition: all .3s;
 }
 .el-input__icon:after {
@@ -1772,10 +1772,10 @@
 .el-input__icon.is-clickable {}
 .el-input__icon.is-clickable:hover {
     cursor: pointer;
-    color: rgb(131, 145, 165);
+    color: rgb(131, 143, 165);
 }
 .el-input__icon.is-clickable:hover + .el-input__inner {
-    border-color: rgb(131, 145, 165);
+    border-color: rgb(131, 143, 165);
 }
 .el-input--large {
     font-size: 16px;
@@ -1807,11 +1807,11 @@
 }
 .el-input-group__append, .el-input-group__prepend {
     background-color: rgb(251, 253, 255);
-    color: rgb(151, 168, 190);
+    color: rgb(151, 165, 190);
     vertical-align: middle;
     display: table-cell;
     position: relative;
-    border: 1px solid rgb(191, 203, 217);
+    border: 1px solid rgb(191, 201, 217);
     border-radius: 4px;
     padding: 0 10px;
     width: 1px;
@@ -1856,15 +1856,15 @@
 }
 .el-textarea.is-disabled .el-textarea__inner {
     background-color: rgb(238, 241, 246);
-    border-color: rgb(209, 219, 229);
+    border-color: rgb(209, 217, 229);
     color: #bbb;
     cursor: not-allowed;
 }
 .el-textarea.is-disabled .el-textarea__inner:-ms-input-placeholder {
-    color: rgb(191, 203, 217);
+    color: rgb(191, 201, 217);
 }
 .el-textarea.is-disabled .el-textarea__inner::placeholder {
-    color: rgb(191, 203, 217);
+    color: rgb(191, 201, 217);
 }
 .el-textarea__inner {
     display: block;
@@ -1874,25 +1874,25 @@
     box-sizing: border-box;
     width: 100%;
     font-size: 14px;
-    color: rgb(31, 45, 61);
+    color: rgb(31, 43, 61);
     background-color: #fff;
     background-image: none;
-    border: 1px solid rgb(191, 203, 217);
+    border: 1px solid rgb(191, 201, 217);
     border-radius: 4px;
     transition: border-color .2s cubic-bezier(.645,.045,.355,1);
 }
 .el-textarea__inner:-ms-input-placeholder {
-    color: rgb(151, 168, 190);
+    color: rgb(151, 165, 190);
 }
 .el-textarea__inner::placeholder {
-    color: rgb(151, 168, 190);
+    color: rgb(151, 165, 190);
 }
 .el-textarea__inner:hover {
-    border-color: rgb(131, 145, 165);
+    border-color: rgb(131, 143, 165);
 }
 .el-textarea__inner:focus {
     outline: none;
-    border-color: #1E9FFF;
+    border-color: #409EFF;
 }
 @charset "UTF-8";
 :root {
@@ -2008,11 +2008,11 @@
     height: 0;
     cursor: pointer;
     border-radius: inherit;
-    background-color: rgba(151, 168, 190, 0.3);
+    background-color: rgba(151, 165, 190, 0.3);
     transition: .3s background-color;
 }
 .el-scrollbar__thumb:hover {
-    background-color: rgba(151, 168, 190, 0.5);
+    background-color: rgba(151, 165, 190, 0.5);
 }
 .el-scrollbar__bar {
     position: absolute;
