@@ -2,7 +2,8 @@
 	<div>
 		<Topbar></Topbar>
 		<Leftbar></Leftbar>
-		<div class="main-right">
+		<div class="right-main">
+			123123
 		</div>
 	</div>
 </template>
@@ -12,15 +13,14 @@
 	export default {
 		name: "backend",
 		data() {
-			return {}
+			return {
+				status:false
+			}
 		},
 		components: {
 			Leftbar,
 			Topbar
 		},
-		created() {},
-		methods: {},
-		mounted() {}
 	};
 </script>
 <style lang="less">

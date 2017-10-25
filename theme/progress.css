@@ -118,7 +118,7 @@
 
 .el-progress__text{
   font-size:14px;
-  color:rgb(106, 82, 72);
+  color:rgb(72, 87, 106);
   display: inline-block;
   vertical-align: middle;
   margin-left: 10px;
@@ -176,7 +176,7 @@
 .el-progress-bar__outer{
   height: 6px;
   border-radius: 100px;
-  background-color:rgb(241, 234, 228);
+  background-color:rgb(228, 232, 241);
   overflow: hidden;
   position: relative;
   vertical-align: middle;
@@ -188,7 +188,7 @@
   top: 0;
   height: 100%;
   border-radius: 2px 0 0 2px;
-  background-color:#f6623f;
+  background-color:#1E9FFF;
   text-align: right;
   border-radius: 100px;
   line-height: 1;
@@ -217,6 +217,7 @@
   /* Colors
   -------------------------- */
   /* --color-primary: #20a0ff; */
+  /* --color-primary: #f6623f; */
   /* Link
   -------------------------- */
   /* Border

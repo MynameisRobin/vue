@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="header">
+    <div class="login-header">
       <div class="header-inner clearfix">
         <div class="logo fl">
           <img src="/static/images/logo.png">
@@ -22,11 +22,11 @@
           <div class="mt10 clearfix">
             <el-checkbox v-model="checked" class="remember">一个月内免登录</el-checkbox>
             <label class="fr">
-                                                                                      <router-link :to="{ name: 'forget'}" class="linelight orange">忘记密码</router-link>
-                                                                                  </label>
+                <router-link :to="{ name: 'forget'}" class="linelight orange">忘记密码</router-link>
+            </label>
           </div>
           <div class="mt10">
-            <a href="javascript:;" id="sendSubmit" class="btn dis-b btn-lg btn-submit wfull mt10" @click="submitForm('loginForm')">登录</a>
+            <a href="javascript:;" class="btn dis-b btn-lg btn-submit wfull mt10" @click="submitForm('loginForm')">登录</a>
           </div>
           <div class="clearfix mt10">
             <span>还没有智享头条账号，您可以</span>
@@ -45,6 +45,7 @@
     isNull
   } from "../js/util.js";
   import Api from "../api/api.js";
+  import Topbar from "../components/topbar";
   let api = new Api();
   export default {
     name: "Login",
@@ -138,7 +139,7 @@
     height: 100%;
   }
   .wrapper {
-    background: url(../../static/images/login_bg.jpg) top center no-repeat;
+    background: url(/static/images/login_bg.jpg) top center no-repeat;
   }
   .btn-lg {
     padding: 10px 0;
@@ -146,4 +147,10 @@
     line-height: 1.3333333;
     border-radius: 6px;
   }
+  .login-header {
+    background: #fff;
+    img{
+      margin-top:15px;
+    }
+}
 </style>

@@ -107,7 +107,7 @@
     display: inline-block;
     font-size: 18px;
     margin-right: 6px;
-    color: rgb(217, 198, 191);
+    color: rgb(191, 203, 217);
     transition: .3s;
 }
 
@@ -139,6 +139,7 @@
     /* Colors
   -------------------------- */
     /* --color-primary: #20a0ff; */
+    /* --color-primary: #f6623f; */
     /* Link
   -------------------------- */
     /* Border

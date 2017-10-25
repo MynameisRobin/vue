@@ -1,25 +1,24 @@
 <template>
-	<div class="leftMenu">
+	<div class="left-menu">
 		<el-radio-group v-model="isCollapse" class="mt20 mb20">
 			<el-radio-button :label="false">展开</el-radio-button>
 			<el-radio-button :label="true">收起</el-radio-button>
 		</el-radio-group>
-		<el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+		<el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
 			<el-submenu index="1">
 				<div slot="title">
 					<i class="el-icon-location"></i>
-					<span slot="title">导航一</span>
+					<span>导航一</span>
 				</div>
 				<el-menu-item-group>
-					<span slot="title">分组一</span>
 					<el-menu-item index="1-1">选项1</el-menu-item>
 					<el-menu-item index="1-2">选项2</el-menu-item>
 				</el-menu-item-group>
-				<el-menu-item-group title="分组2">
 					<el-menu-item index="1-3">选项3</el-menu-item>
-				</el-menu-item-group>
 				<el-submenu index="1-4">
-					<span slot="title">选项4</span>
+					<div slot="title">
+						选项4
+					</div>
 					<el-menu-item index="1-4-1">选项1</el-menu-item>
 				</el-submenu>
 			</el-submenu>
@@ -40,8 +39,8 @@
 		name: "Leftbar",
 		data() {
 			return {
-				isCollapse: true
-			};
+				isCollapse: false
+			}
 		},
 		methods: {
 			handleOpen(key, keyPath) {
@@ -50,13 +49,10 @@
 			handleClose(key, keyPath) {
 				console.log(key, keyPath);
 			}
-		}
+		},
 	};
 </script>
 <style lang="less">
-	.leftMenu {
-		border: 1px solid #e5e5e5;
-	}
 	.el-menu-vertical-demo:not(.el-menu--collapse) {
 		width: 200px;
 		min-height: 400px;

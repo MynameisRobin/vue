@@ -22,10 +22,12 @@
     }
 </script>
 <style lang="less" scope>
-    h1 {
+    .logo {
+        margin-left:20px;
         a {
             font-size: 28px;
             line-height: 74px;
         }
     }
+
 </style>

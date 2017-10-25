@@ -167,7 +167,7 @@
     vertical-align: middle;
     float: left;
     font-size: 14px;
-    color: rgb(106, 82, 72);
+    color: rgb(72, 87, 106);
     line-height: 1;
     padding: 11px 12px 11px 0;
     box-sizing: border-box;
@@ -203,6 +203,7 @@
     /* Colors
   -------------------------- */
     /* --color-primary: #20a0ff; */
+    /* --color-primary: #f6623f; */
     /* Link
   -------------------------- */
     /* Border

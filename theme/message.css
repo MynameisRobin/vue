@@ -136,7 +136,7 @@
     font-size: 14px;
     margin: 0 34px 0 0;
     white-space: nowrap;
-    color: rgb(165, 142, 131);
+    color: rgb(131, 145, 165);
     text-align: justify;
 }
 
@@ -162,12 +162,12 @@
     right: 0;
     position: absolute;
     cursor: pointer;
-    color: rgb(217, 198, 191);
+    color: rgb(191, 203, 217);
     font-size: 14px;
 }
 
 .el-message__closeBtn:hover{
-    color: rgb(190, 164, 151);
+    color: rgb(151, 168, 190);
 }
 
 .el-message-fade-enter, .el-message-fade-leave-active {
@@ -180,6 +180,7 @@
     /* Colors
   -------------------------- */
     /* --color-primary: #20a0ff; */
+    /* --color-primary: #f6623f; */
     /* Link
   -------------------------- */
     /* Border

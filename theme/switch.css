@@ -104,21 +104,21 @@
 }
 
 .el-switch.is-disabled .el-switch__core{
-    border-color: rgb(241, 234, 228) !important;
-    background: rgb(241, 234, 228) !important
+    border-color: rgb(228, 232, 241) !important;
+    background: rgb(228, 232, 241) !important
 }
 
 .el-switch.is-disabled .el-switch__core span{
-    background-color: rgb(255, 252, 251) !important
+    background-color: rgb(251, 253, 255) !important
 }
 
 .el-switch.is-disabled .el-switch__core ~ .el-switch__label *{
-    color: rgb(255, 252, 251) !important
+    color: rgb(251, 253, 255) !important
 }
 
 .el-switch.is-checked .el-switch__core{
-    border-color: #f6623f;
-    background-color: #f6623f;
+    border-color: #1E9FFF;
+    background-color: #1E9FFF;
 }
 
 .el-switch.is-disabled{}
@@ -173,7 +173,7 @@
 }
 
 .el-switch__input.allow-focus:focus + .el-switch__core{
-    box-shadow: 0 0 2px #f6623f
+    box-shadow: 0 0 2px #1E9FFF
 }
 
 .el-switch__core{
@@ -182,11 +182,11 @@
     position: relative;
     width: 46px;
     height: 22px;
-    border: 1px solid rgb(217, 198, 191);
+    border: 1px solid rgb(191, 203, 217);
     outline: none;
     border-radius: 12px;
     box-sizing: border-box;
-    background: rgb(217, 198, 191);
+    background: rgb(191, 203, 217);
     cursor: pointer;
     transition: border-color .3s, background-color .3s;
     z-index: 1
@@ -218,6 +218,7 @@
     /* Colors
   -------------------------- */
     /* --color-primary: #20a0ff; */
+    /* --color-primary: #f6623f; */
     /* Link
   -------------------------- */
     /* Border

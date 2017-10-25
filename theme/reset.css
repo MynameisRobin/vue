@@ -567,24 +567,24 @@ body {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: rgb(61, 39, 31);
+  color: rgb(31, 45, 61);
 }
 
 a {
-  color: #f6623f;
+  color: #1E9FFF;
   text-decoration: none
 }
 
 a:hover, a:focus {
-  color: rgb(248, 129, 101);
+  color: rgb(75, 178, 255);
 }
 
 a:active {
-  color: rgb(221, 88, 57);
+  color: rgb(27, 143, 230);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: rgb(61, 39, 31);
+  color: rgb(31, 45, 61);
   font-weight: inherit
 }
 
@@ -643,6 +643,7 @@ hr {
   /* Colors
   -------------------------- */
   /* --color-primary: #20a0ff; */
+  /* --color-primary: #f6623f; */
   /* Link
   -------------------------- */
   /* Border
