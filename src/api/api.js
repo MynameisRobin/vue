@@ -31,6 +31,7 @@ export default class Api {
                 defer.resolve(data);
             },
             error: function(err) {
+                defer.resolve(err);
                 console.log(err.status + ":" + err.statusText);
             }
         });

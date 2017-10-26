@@ -3,7 +3,7 @@
     <div class="login-header">
       <div class="header-inner clearfix">
         <div class="logo fl">
-          <img src="/static/images/logo.png">
+          <img src="/static/images/logo1.png">
         </div>
       </div>
     </div>
@@ -22,8 +22,8 @@
           <div class="mt10 clearfix">
             <el-checkbox v-model="checked" class="remember">一个月内免登录</el-checkbox>
             <label class="fr">
-                <router-link :to="{ name: 'forget'}" class="linelight orange">忘记密码</router-link>
-            </label>
+                  <router-link :to="{ name: 'forget'}" class="linelight orange">忘记密码</router-link>
+              </label>
           </div>
           <div class="mt10">
             <a href="javascript:;" class="btn dis-b btn-lg btn-submit wfull mt10" @click="submitForm('loginForm')">登录</a>
@@ -98,7 +98,7 @@
                 password: _this.loginForm.password,
                 usercode: _this.loginForm.usercode
               })
-              .then(res => {
+              .done(res => {
                 // close loading
                 loading.close();
                 let request = res.data;
@@ -115,7 +115,7 @@
                   });
                 }
               })
-              .fail(res => {
+              .fail((res) => {
                 loading.close();
                 console.log(res)
               });
@@ -149,8 +149,8 @@
   }
   .login-header {
     background: #fff;
-    img{
-      margin-top:15px;
+    img {
+      margin-top: 15px;
     }
-}
+  }
 </style>

@@ -3,12 +3,7 @@
 * author  robin
 * date    20170413
 */
-.red {
-  color: #FF4949;
-}
-.black {
-  color: #333;
-}
+@import "animate.css";
 blockquote,
 body,
 button,
@@ -154,14 +149,18 @@ textarea {
   color: #333;
   outline: 0;
 }
-body {
+body,
+html {
+  width: 100%;
+  height: 100%;
+  background: #f1f1f1;
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Arial, sans-serif;
 }
 a {
   color: #333;
 }
 a:hover {
-  color: #1E9FFF;
+  color: #6ac1ff;
 }
 .cur-p {
   cursor: pointer;
@@ -234,7 +233,7 @@ a:hover {
   text-align: center;
 }
 .form-control:focus {
-  border-color: #0494ff;
+  border-color: #51b6ff;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 139, 111, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 139, 111, 0.6);
@@ -246,40 +245,56 @@ a:hover {
 .btn-submit,
 .btn-submit:active {
   color: #fff;
-  background-color: #1E9FFF;
+  background-color: #6ac1ff;
 }
 .btn-submit:hover,
 .btn-submit:focus,
 .btn-submit:active:hover {
   color: #fff;
-  background-color: #0494ff;
+  background-color: #51b6ff;
 }
 .clearfix {
   clear: both;
 }
+.loading {
+  top: 0!important;
+  left: 0!important;
+  width: 100%!important;
+  height: 100%!important;
+}
+.red {
+  color: #FF4949;
+}
+.black {
+  color: #333;
+}
+.orange {
+  color: #6ac1ff;
+}
+.white {
+  color: #fff;
+}
+.login-title {
+  font-size: 24px;
+  color: #6ac1ff;
+}
 .header {
-  background: #fff;
+  background: #6ac1ff;
 }
 .header-inner {
   width: 1200px;
   margin: 0 auto;
   height: 74px;
 }
-.logo {
-  margin-top: 15px;
+.container {
+  width: 1200px;
+  margin: 20px auto;
+  padding: 0;
+  background: #fff;
 }
-.right-content {
-  margin: 18px 32px 18px 32px;
-}
-.crumb {
-  margin: 18px 0 0 0;
-  padding: 0 32px 0;
-  font-size: 18px;
-  line-height: 40px;
-}
-.tab-panel {
-  height: 62px;
-  border-bottom: 1px solid #e5e5e5;
+.right-main {
+  min-height: 800px;
+  margin: 18px 32px;
 }
 .tabinner {
   position: relative;
@@ -298,7 +313,7 @@ a:hover {
   margin-left: 7px;
 }
 .tabinner li:hover {
-  color: #0494ff;
+  color: #51b6ff;
 }
 .tabinner li.active:after {
   position: absolute;
@@ -309,7 +324,35 @@ a:hover {
   bottom: 1px;
   width: 64px;
   height: 3px;
-  background-color: #0494ff;
+  background-color: #51b6ff;
+}
+.sidebar .sidebar-collapse {
+  padding-top: 18px;
+}
+.sidebar .sidebar-collapse > li {
+  line-height: 40px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.sidebar .sidebar-collapse > li > a {
+  display: block;
+  color: #888888;
+  padding-left: 45px;
+}
+.sidebar .sidebar-collapse > li i.fa {
+  font-size: 16px;
+  margin-right: 12px;
+}
+.sidebar .sidebar-sub > li {
+  text-align: center;
+}
+.sidebar .sidebar-collapse > li a,
+.sidebar .sidebar-sub > li a.active {
+  display: block;
+}
+.sidebar .sidebar-collapse > li a.active,
+.sidebar .sidebar-sub > li a.active {
+  color: #fff;
+  background: #6ac1ff;
 }
 .in-bd .bgGreen,
 .in-bd .bgBlue {
@@ -322,11 +365,9 @@ a:hover {
 .in-bd .bgBlue {
   width: calc(-162%);
 }
-/*进度条宽度*/
 #ossfile {
   width: 200px;
 }
-/*btn*/
 .btn {
   padding: 6px 12px;
   margin-bottom: 0;
@@ -595,4 +636,24 @@ a:hover {
 }
 .mb100 {
   margin-bottom: 100px !important;
+}
+/*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  background-color: #f5f5f5;
+}
+/*定义滚动条的轨道，内阴影及圆角*/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+/*定义滑块，内阴影及圆角*/
+::-webkit-scrollbar-thumb {
+  /*width: 10px;*/
+  height: 20px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
 }
