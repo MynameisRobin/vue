@@ -6,7 +6,6 @@ export default class Api {
         this.apikey = "test";
         this.version = "1";
         this.apiUrl = {
-            selectAdvList: "selectAdvList",
             login: "user/login",
             queryReArticleHotList:"cms_new/queryReArticleHotList"
         };
@@ -31,7 +30,7 @@ export default class Api {
                 defer.resolve(data);
             },
             error: function(err) {
-                defer.resolve(err);
+                defer.reject(err);
                 console.log(err.status + ":" + err.statusText);
             }
         });
