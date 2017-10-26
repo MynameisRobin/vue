@@ -83,14 +83,13 @@
       // submit form
       submitForm(formName) {
         var _this = this;
-        this.$refs[formName].validate(valid => {
+        _this.$refs[formName].validate(valid => {
           if (valid) {
             // loading
             const loading = this.$loading({
               lock: true,
               background: 'rgba(0, 0, 0, 0.7)',
               customClass: "loading"
-              // text: '正在登录...',
             });
             // ajax login
             api
@@ -108,7 +107,7 @@
                     "scSysUser",
                     JSON.stringify(request.scSysUser)
                   );
-                  this.$router.push("backend");
+                  _this.$router.push("backend");
                 } else {
                   _this.$notify.error({
                     message: res.msg

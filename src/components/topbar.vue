@@ -18,7 +18,9 @@
                                     <li><i class="fa fa-leaf"></i>商家
                                         <div class="name"><a href="index.html">测试服的锐哥</a></div>
                                     </li>
-                                    <li class="line"><a href="javascript:;" id="exit"><i class="fa fa-sign-out"></i>退出</a></li>
+                                    <li class="line">
+                                        <a @click="exitFn()"><i class="fa fa-sign-out"></i>退出</a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="fl">
@@ -35,6 +37,12 @@
 <script>
     export default {
         name: "Topbar",
+        methods:{
+            exitFn(){
+                localStorage.clear();
+                // this.$router.push("login")
+            }
+        }
     }
 </script>
 <style lang="less" scope>
