@@ -6,8 +6,12 @@ export default class Api {
         this.apikey = "test";
         this.version = "1";
         this.apiUrl = {
+            // 登录
             login: "user/login",
-            queryReArticleHotList:"cms_new/queryReArticleHotList"
+            // 首页查询阅读量
+            AllSubScriptionByUserId: "cms_back/AllSubScriptionByUserId",
+            // 首页公告
+            selectNoticeList: "cms_new/selectNoticeList",
         };
     }
     reqNewAjaxAsync(url, data) {
@@ -15,7 +19,7 @@ export default class Api {
         let defer = $.Deferred();
         $.ajax({
             type: "POST",
-            url:'/zxcity_restful/ws/rest/',
+            url: '/zxcity_restful/ws/rest/',
             dataType: "json",
             async: true, //默认为异步
             headers: {

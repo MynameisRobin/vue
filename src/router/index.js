@@ -64,17 +64,21 @@ const router = new Router({
 })
 
 // 跳转页面前检测是否登录！
-// router.beforeEach((to, from, next) => {
-//     var _this = this;
-//     var token = localStorage.getItem('scSysUser');
-//     if (token) {
-//         console.log('已登录，跳转到' + to.path)
-//         // next()
-//     }
-//     else {
-//         console.log('缓存中未检测到token，跳转到登录页面')
-//         // router.go('login')
-//     }
-// })
+router.beforeEach((to, from, next) => {
+    var _this = this;
+    var flag = false;
+    var token = localStorage.getItem('scSysUser')
+    if (token || to.path == '' || to.path == '/login' || to.path == '/register' || to.path == '/forget') {
+        console.log('允许跳转下一页')
+        next()
+        return false
+    }
+    else {
+        console.log('缓存中未检测到token，跳转到登录页面')
+        router.push('login')
+        return false;
+    }
+
+})
 
 export default router

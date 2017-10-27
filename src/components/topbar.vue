@@ -40,7 +40,7 @@
         methods:{
             exitFn(){
                 localStorage.clear();
-                // this.$router.push("login")
+                this.$router.push("login")
             }
         }
     }

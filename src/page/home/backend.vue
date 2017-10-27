@@ -20,15 +20,15 @@
 							<div class="statistics">
 								<el-row type="flex" justify="center">
 									<el-col :span="7" class="ms cur-p">
-										<span class="num">4</span><br>
+										<span class="num" id="fansNumber"></span><br>
 										<span class="txt">粉丝</span>
 									</el-col>
 									<el-col :span="7" class="ms line cur-p">
-										<span class="num">4</span><br>
+										<span class="num" id="articleNumber"></span><br>
 										<span class="txt">粉丝</span>
 									</el-col>
 									<el-col :span="10" class="ms">
-										<span class="num">413</span><br>
+										<span class="num" id="visitNumber"></span><br>
 										<span class="txt">累计阅读量</span>
 									</el-col>
 								</el-row>
@@ -42,7 +42,8 @@
 							<li class="list-dd cur-p" sccmsnoticeid="1" data-toggle="modal" data-target="#noticeModal">99公告测试</li>
 						</ul>
 					</div>
-					<div id="page" class="text-center"></div>
+					<el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="currentPage3" :page-size="100" layout="prev, pager, next, jumper" :total="1000">
+					</el-pagination>
 				</el-col>
 			</el-row>
 		</div>
@@ -51,11 +52,90 @@
 <script>
 	import Leftbar from "../../components/leftbar.vue";
 	import Topbar from "../../components/topbar.vue";
+	import {
+		countUp,
+		isNull
+	} from "../../js/util.js";
+	import Api from "../../api/api.js";
+	let api = new Api();
 	export default {
 		name: "backend",
+		data() {
+			return {
+				loading: '',
+				errTip: "系统繁忙，请稍后再试!~",
+				arr: ["fansNumber", "articleNumber", "visitNumber"],
+				currentPage3: 5,
+			}
+		},
 		components: {
 			Leftbar,
 			Topbar
+		},
+		methods: {
+			// 分页
+			handleSizeChange(val) {
+				console.log(`每页 ${val} 条`);
+			},
+			handleCurrentChange(val) {
+				console.log(`当前页: ${val}`);
+			},
+			// 获取头部数据
+			getHeadData() {
+				let _this = this;
+				var scSycUser = localStorage.getItem("scSysUser") || "";
+				let userId = !isNull(scSycUser) ? scSycUser.id : "";
+				api
+					.reqNewAjaxAsync(api.apiUrl.AllSubScriptionByUserId, {
+						"userId": userId
+					})
+					.then(
+						res => {
+							this.loading.close();
+							if (res.code == 1) {
+								// 数字上升动画
+								setTimeout(function() {
+									countUp('articleNumber', res.data.articleNumber || 0);
+									countUp('fansNumber', res.data.fansNumber || 0);
+									countUp('visitNumber', res.data.visitNumber || 0);
+								}, 800);
+							} else {
+								_this.$notify.error({
+									message: res.msg
+								});
+							}
+						},
+						function(res) {
+							this.loading.close();
+							_this.$notify.error({
+								message: _this.errTip
+							});
+						})
+			},
+			// 获取表格数据
+			getTableData() {
+				let _this = this;
+				api
+					.reqNewAjaxAsync(api.apiUrl.AllSubScriptionByUserId, {
+						"userId": 0,
+						"pagination": {
+							"rows": 5,
+							"page": 1
+						}
+					})
+					.then(
+						res => {
+							if (res.code == 1) {}
+						})
+			}
+		},
+		mounted() {
+			this.loading = this.$loading({
+				lock: true,
+				background: "rgba(0, 0, 0, 0.7)",
+				customClass: "loading"
+			});
+			this.getHeadData();
 		}
 	}
 </script>
