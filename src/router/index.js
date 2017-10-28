@@ -7,6 +7,7 @@ import Register from '../page/register';
 import Forget from '../page/forget';
 import Backend from '../page/home/backend';
 import Test from '../page/test';
+import Article from "../page/publish/article";
 Vue.use(Router)
 
 const page404 = {
@@ -32,11 +33,16 @@ const router = new Router({
     {
         path: '/backend',
         name: 'backend',
-        component: Backend,
+        component: Backend
+    },
+    {
+        path: '/article',
+        name: 'article',
+        component: Article,
         children: [
         {
             path: '',
-            component: Test
+            component: Article
         },
         {
             path: 'test',

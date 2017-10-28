@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>浏览器版本过低</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "微软雅黑";
+    }
+    
+    div {
+        width: 760px;
+        height: 138px;
+        margin: 200px auto;
+    }
+    
+    p {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 24px;
+    }
+</style>
+
+<body>
+    <div>
+        <img src="img/sorry.png" alt="ie8以下不兼容">
+        <p>您当前的浏览器版本过低</p>
+        <p>推荐使用谷歌、火狐、360、UC、QQ等浏览器</p>
+    </div>
+    <!--[if gt IE 8]>
+        <script>
+            window.location.href = "index.html";
+        </script>
+    <![endif]-->
+</body>
+
+</html>

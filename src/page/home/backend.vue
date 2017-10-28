@@ -10,7 +10,7 @@
 					<div class="in-bd clearfix">
 						<div class="bg-green fl cur-p">
 							<div class="publish">
-								<a href="send_article.html"><img class="ico" src="/static/images/ico/publish.png">发表</a>
+								<router-link :to="{name:'article'}"><img class="ico" src="/static/images/ico/publish.png">{{text.publish}}</router-link>
 								<p>
 									<a></a>
 								</p>
@@ -21,15 +21,15 @@
 								<el-row type="flex" justify="center">
 									<el-col :span="7" class="ms cur-p">
 										<span class="num" id="fansNumber"></span><br>
-										<span class="txt">粉丝</span>
+										<span class="txt">{{text.fansNumberTxt}}</span>
 									</el-col>
 									<el-col :span="7" class="ms line cur-p">
 										<span class="num" id="articleNumber"></span><br>
-										<span class="txt">粉丝</span>
+										<span class="txt">{{text.articleNumberTxt}}</span>
 									</el-col>
 									<el-col :span="10" class="ms">
 										<span class="num" id="visitNumber"></span><br>
-										<span class="txt">累计阅读量</span>
+										<span class="txt">{{text.visitNumberTxt}}</span>
 									</el-col>
 								</el-row>
 							</div>
@@ -37,12 +37,11 @@
 					</div>
 					<div class="list-dt">
 						<div class="list-title">公告</div>
-						<ul class="list-dl" id="listUl">
-							<li class="list-dd cur-p" sccmsnoticeid="2" data-toggle="modal" data-target="#noticeModal">需在在心底政府vasddadsf阿斯顿飞阿斯顿飞阿斯顿飞阿斯</li>
-							<li class="list-dd cur-p" sccmsnoticeid="1" data-toggle="modal" data-target="#noticeModal">99公告测试</li>
+						<ul class="list-dl" v-for="(item,index) in noticeList" :key="'k'+index">
+							<li class="list-dd cur-p" :scCmsNoticeId="item.scCmsNoticeId" data-toggle="modal" data-target="#noticeModal">{{item.scCmsNoticeTitle}}</li>
 						</ul>
 					</div>
-					<el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="currentPage3" :page-size="100" layout="prev, pager, next, jumper" :total="1000">
+					<el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="currentPage" :page-size="pageSize" layout="total, prev, pager, next, jumper" :total="total">
 					</el-pagination>
 				</el-col>
 			</el-row>
@@ -62,10 +61,23 @@
 		name: "backend",
 		data() {
 			return {
+				text: {
+					publish: "发表",
+					fansNumberTxt: "粉丝",
+					articleNumberTxt: "文章数量",
+					visitNumberTxt: "累计阅读量"
+				},
+				// 总条数
+				total: 0,
+				// 一页几条
+				pageSize: 5,
+				// 当前页
+				currentPage: 1,
+				// 公告列表
+				noticeList: {},
+				// 加载动画
 				loading: '',
 				errTip: "系统繁忙，请稍后再试!~",
-				arr: ["fansNumber", "articleNumber", "visitNumber"],
-				currentPage3: 5,
 			}
 		},
 		components: {
@@ -78,13 +90,13 @@
 				console.log(`每页 ${val} 条`);
 			},
 			handleCurrentChange(val) {
-				console.log(`当前页: ${val}`);
+				this.getTableData(`${val}`);
 			},
 			// 获取头部数据
 			getHeadData() {
 				let _this = this;
 				var scSycUser = localStorage.getItem("scSysUser") || "";
-				let userId = !isNull(scSycUser) ? scSycUser.id : "";
+				let userId = !isNull(scSycUser) ? JSON.parse(scSycUser).id : "";
 				api
 					.reqNewAjaxAsync(api.apiUrl.AllSubScriptionByUserId, {
 						"userId": userId
@@ -94,7 +106,7 @@
 							this.loading.close();
 							if (res.code == 1) {
 								// 数字上升动画
-								setTimeout(function() {
+								setTimeout(() => {
 									countUp('articleNumber', res.data.articleNumber || 0);
 									countUp('fansNumber', res.data.fansNumber || 0);
 									countUp('visitNumber', res.data.visitNumber || 0);
@@ -105,30 +117,42 @@
 								});
 							}
 						},
-						function(res) {
-							this.loading.close();
+						(res) => {
+							this.loading.close()
 							_this.$notify.error({
 								message: _this.errTip
 							});
 						})
 			},
 			// 获取表格数据
-			getTableData() {
+			getTableData(page) {
 				let _this = this;
 				api
-					.reqNewAjaxAsync(api.apiUrl.AllSubScriptionByUserId, {
+					.reqNewAjaxAsync(api.apiUrl.selectNoticeList, {
 						"userId": 0,
 						"pagination": {
-							"rows": 5,
-							"page": 1
+							"rows": _this.pageSize,
+							"page": page
 						}
 					})
 					.then(
 						res => {
-							if (res.code == 1) {}
+							if (res.code == 1) {
+								if (res.data) {
+									_this.noticeList = res.data;
+									_this.total = res.total;
+								}
+							}
+						},
+						(res) => {
+							this.loading.close()
+							_this.$notify.error({
+								message: _this.errTip
+							});
 						})
 			}
 		},
+		created() {},
 		mounted() {
 			this.loading = this.$loading({
 				lock: true,
@@ -136,6 +160,7 @@
 				customClass: "loading"
 			});
 			this.getHeadData();
+			this.getTableData(1);
 		}
 	}
 </script>

@@ -23,10 +23,10 @@
 		<div class="sidebar">
 			<ul class="sidebar-collapse">
 				<li>
-					<a type="index" class="sidebar-item active" href="index.html"><i class="iconfont icon-home"></i>主页</a>
+					<router-link :to="{name:'article'}" class="sidebar-item active"><i class="iconfont icon-home"></i>主页</router-link>
 				</li>
 				<li>
-					<a type="publish" class="sidebar-item" href="send_article.html"><i class="fa fa-edit"></i>发表</a>
+					<router-link :to="{name:'article'}" class="sidebar-item"><i class="iconfont icon-publish"></i>发表</router-link>
 				</li>
 				<li>
 					<a class="cur-d"><i class="fa fa-file-text-o"></i>文章管理</a>
