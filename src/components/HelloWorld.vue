@@ -22,7 +22,7 @@
 
 <script>
     import Api from "../api/api.js";
-    import Modal from "./modal";
+    import Modal from "./my-modal";
     let api = new Api();
     export default {
         name: 'HelloWorld',

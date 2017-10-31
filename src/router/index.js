@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import Modal from '@/components/modal'
 import Login from '../page/login';
 import Register from '../page/register';
 import Forget from '../page/forget';
@@ -53,11 +52,6 @@ const router = new Router({
             name: 'Hello',
             component: HelloWorld
         }],
-    },
-    {
-        path: '/modal',
-        name: 'Modal',
-        component: Modal
     },
     { // 根目录重定向  
         path: '*',

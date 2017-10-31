@@ -12,6 +12,8 @@ export default class Api {
             AllSubScriptionByUserId: "cms_back/AllSubScriptionByUserId",
             // 首页公告
             selectNoticeList: "cms_new/selectNoticeList",
+            // 首页公告详情
+            selectNoticeA: "cms_new/selectNoticeA",
         };
     }
     reqNewAjaxAsync(url, data) {
@@ -21,7 +23,7 @@ export default class Api {
             type: "POST",
             url: '/zxcity_restful/ws/rest/',
             dataType: "json",
-            async: true, //默认为异步
+            async: true,
             headers: {
                 apikey: "test"
             },

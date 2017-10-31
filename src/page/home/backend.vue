@@ -37,8 +37,8 @@
 					</div>
 					<div class="list-dt">
 						<div class="list-title">公告</div>
-						<ul class="list-dl" v-for="(item,index) in noticeList" :key="'k'+index">
-							<li class="list-dd cur-p" :scCmsNoticeId="item.scCmsNoticeId" data-toggle="modal" data-target="#noticeModal">{{item.scCmsNoticeTitle}}</li>
+						<ul class="list-dl" id="tableUl" v-for="(item,index) in noticeList" :key="'k'+index">
+							<li class="list-dd cur-p" :scCmsNoticeId="item.scCmsNoticeId" @click="getNoticeDetail(item.scCmsNoticeId)">{{item.scCmsNoticeTitle}}</li>
 						</ul>
 					</div>
 					<el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="currentPage" :page-size="pageSize" layout="total, prev, pager, next, jumper" :total="total">
@@ -46,6 +46,9 @@
 				</el-col>
 			</el-row>
 		</div>
+		<el-dialog :title="noticleDetailList.scCmsNoticeTitle" :visible.sync="centerDialogVisible" width="30%" center>
+			<div>{{noticleDetailList.scCmsNoticeContent}}</div>
+		</el-dialog>
 	</div>
 </template>
 <script>
@@ -61,6 +64,8 @@
 		name: "backend",
 		data() {
 			return {
+				// 模态框
+				centerDialogVisible: false,
 				text: {
 					publish: "发表",
 					fansNumberTxt: "粉丝",
@@ -75,6 +80,8 @@
 				currentPage: 1,
 				// 公告列表
 				noticeList: {},
+				// 公告详情
+				noticleDetailList: {},
 				// 加载动画
 				loading: '',
 				errTip: "系统繁忙，请稍后再试!~",
@@ -90,6 +97,10 @@
 				console.log(`每页 ${val} 条`);
 			},
 			handleCurrentChange(val) {
+				this.loading = this.$loading({
+					background: "rgba(0, 0, 0, 0.7)",
+					customClass: "loading"
+				});
 				this.getTableData(`${val}`);
 			},
 			// 获取头部数据
@@ -137,10 +148,35 @@
 					})
 					.then(
 						res => {
+							this.loading.close();
 							if (res.code == 1) {
 								if (res.data) {
 									_this.noticeList = res.data;
 									_this.total = res.total;
+								}
+							}
+						},
+						(res) => {
+							this.loading.close()
+							_this.$notify.error({
+								message: _this.errTip
+							});
+						})
+			},
+			getNoticeDetail(id) {
+				let _this = this;
+				api
+					.reqNewAjaxAsync(api.apiUrl.selectNoticeA, {
+						'scCmsNoticeId': id
+					})
+					.then(
+						res => {
+							this.loading.close();
+							if (res.code == 1) {
+								if (res.data) {
+									// 打开模态框放入数据
+									_this.noticleDetailList = res.data;
+									_this.centerDialogVisible = true;
 								}
 							}
 						},
@@ -155,7 +191,6 @@
 		created() {},
 		mounted() {
 			this.loading = this.$loading({
-				lock: true,
 				background: "rgba(0, 0, 0, 0.7)",
 				customClass: "loading"
 			});
