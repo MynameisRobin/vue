@@ -10,7 +10,6 @@
 		<div class="login-wrap clearfix">
 			<div class="base-login">
 				<el-form :model="loginForm" :rules="rules" ref="loginForm" class="demo-ruleForm">
-					<h2 class="login-title text-center">注册</h2>
 					<div class="mt10">
 						<el-form-item label="" prop="usercode">
 							<el-input v-model="loginForm.usercode" placeholder="手机号" :maxlength="11"></el-input>
