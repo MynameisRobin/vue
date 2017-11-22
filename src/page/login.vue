@@ -22,8 +22,8 @@
 					<div class="mt10 clearfix">
 						<el-checkbox v-model="checked" class="remember">一个月内免登录</el-checkbox>
 						<label class="fr">
-	                    <router-link :to="{ name: 'forget'}" class="linelight orange">忘记密码</router-link>
-	                </label>
+		                    <router-link :to="{ name: 'forget'}" class="linelight orange">忘记密码</router-link>
+		                </label>
 					</div>
 					<div class="mt10">
 						<a href="javascript:;" class="btn dis-b btn-lg btn-submit wfull mt10" @click="submitForm('loginForm')">登录</a>

@@ -1,5 +1,5 @@
 <template>
-	<div class="full">
+	<div class="">
 		<Topbar></Topbar>
 		<div class="container">
 			<el-row type="flex" justify="center">
@@ -37,7 +37,7 @@
 					</div>
 					<div class="list-dt">
 						<div class="list-title">公告</div>
-						<ul class="list-dl" id="tableUl" v-for="(item,index) in noticeList" :key="'k'+index">
+						<ul class="list-dl" v-for="(item,index) in noticeList" :key="'k'+index">
 							<li class="list-dd cur-p" :scCmsNoticeId="item.scCmsNoticeId" @click="getNoticeDetail(item.scCmsNoticeId)">{{item.scCmsNoticeTitle}}</li>
 						</ul>
 					</div>
@@ -46,8 +46,8 @@
 				</el-col>
 			</el-row>
 		</div>
-		<el-dialog :title="noticleDetailList.scCmsNoticeTitle" :visible.sync="centerDialogVisible" width="30%" center>
-			<div>{{noticleDetailList.scCmsNoticeContent}}</div>
+		<el-dialog :title="noticleDetailList.scCmsNoticeTitle" :visible.sync="centerDialogVisible" width="60%" center>
+			<div class="dialog-content" v-html="noticleDetailList.scCmsNoticeContent"></div>
 		</el-dialog>
 	</div>
 </template>
@@ -66,6 +66,7 @@
 			return {
 				// 模态框
 				centerDialogVisible: false,
+				// 页面文本内容
 				text: {
 					publish: "发表",
 					fansNumberTxt: "粉丝",
@@ -92,14 +93,23 @@
 			Topbar
 		},
 		methods: {
+			// 转换为dom节点
+			compile(template) {
+				const cell = document.createElement('div');
+				cell.innerHTML = template;
+				$parent.$compile(cell); // todo 这里无法触发 ready 钩子
+				this.$el.innerHTML = '';
+				this.$el.appendChild(cell);
+			},
 			// 分页
 			handleSizeChange(val) {
 				console.log(`每页 ${val} 条`);
 			},
 			handleCurrentChange(val) {
 				this.loading = this.$loading({
-					background: "rgba(0, 0, 0, 0.7)",
-					customClass: "loading"
+					target: "div.list-dt",
+					background: "rgba(0, 0, 0, 0)",
+					customClass: "loading",
 				});
 				this.getTableData(`${val}`);
 			},
@@ -306,5 +316,13 @@
 	#noticeContent img {
 		max-width: 800px;
 		display: block;
+	}
+	.dialog-content {
+		min-height: 500px;
+		overflow: hidden;
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
 	}
 </style>
