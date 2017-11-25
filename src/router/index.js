@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Login from '../page/login';
 import Register from '../page/register';
 import Forget from '../page/forget';
@@ -46,11 +45,6 @@ const router = new Router({
         {
             path: 'test',
             component: Test
-        },
-        {
-            path: 'hello',
-            name: 'Hello',
-            component: HelloWorld
         }],
     },
     { // 根目录重定向  
