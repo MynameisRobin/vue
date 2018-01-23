@@ -34,7 +34,7 @@ module.exports = {
             '/zxcity_restful/ws/rest': {
                 // target: 'http://139.129.216.37:8081'
                 // target: "http://toutiao.zxtest.izxcs.com/zxcity-cms-new-ms/newms/"
-                target: "http://toutiao.zxtest.izxcs.com",//头条官网
+                target: "http://toutiao.zxtest.izxcs.com",//头条官网测试环境
                 changeOrigin: true,
             }
         },

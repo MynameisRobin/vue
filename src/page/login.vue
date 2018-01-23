@@ -11,7 +11,7 @@
 			<div class="base-login">
 				<el-form :model="loginForm" :rules="rules" ref="loginForm" class="demo-ruleForm">
 					<h2 class="login-title text-center">登录</h2>
-					<div class="mt10">
+					<div class="mt20">
 						<el-form-item label="" prop="usercode">
 							<el-input v-model="loginForm.usercode" placeholder="手机号" :maxlength="11"></el-input>
 						</el-form-item>
@@ -22,8 +22,8 @@
 					<div class="mt10 clearfix">
 						<el-checkbox v-model="checked" class="remember">一个月内免登录</el-checkbox>
 						<label class="fr">
-		                    <router-link :to="{ name: 'forget'}" class="linelight orange">忘记密码</router-link>
-		                </label>
+			                    <router-link :to="{ name: 'forget'}" class="linelight orange">忘记密码</router-link>
+			                </label>
 					</div>
 					<div class="mt10">
 						<a href="javascript:;" class="btn dis-b btn-lg btn-submit wfull mt10" @click="submitForm('loginForm')">登录</a>
@@ -104,7 +104,7 @@
 									loading.close();
 									let request = res.data;
 									if (res.code == 1) {
-										localStorage.setItem("apikey", request.apikey);
+										localStorage.setItem("apikey", request.apikey );
 										localStorage.setItem(
 											"scSysUser",
 											JSON.stringify(request.scSysUser)

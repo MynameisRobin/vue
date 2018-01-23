@@ -39,9 +39,13 @@ const router = new Router({
         component: Article,
         children: [
         {
-            path: '',
+            path: '/article',
             component: Article
         },
+        // {
+        //     path: '/video',
+        //     component: video
+        // },
         {
             path: 'test',
             component: Test

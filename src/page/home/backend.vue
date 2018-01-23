@@ -66,7 +66,7 @@
 			return {
 				// 模态框
 				centerDialogVisible: false,
-				// 页面文本内容
+				// 页面文本内容(中文)
 				text: {
 					publish: "发表",
 					fansNumberTxt: "粉丝",
