@@ -1,25 +1,25 @@
 <template>
 	<div class="left-menu fl">
 		<!-- <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-				<el-menu-item index="1">
-					<i class="el-icon-star-on"></i>
-					<span slot="title">主页</span>
-				</el-menu-item>
-				<el-submenu index="1">
-					<div slot="title">
+					<el-menu-item index="1">
 						<i class="el-icon-star-on"></i>
 						<span slot="title">主页</span>
-					</div>
-					<el-menu-item-group>
-						<el-menu-item index="1-1"></el-menu-item>
-						<el-menu-item index="1-2">选项2</el-menu-item>
-					</el-menu-item-group>
-					<el-submenu index="1-3">
-						<span slot="title">选项3</span>
-						<el-menu-item index="1-3-1">选项1</el-menu-item>
+					</el-menu-item>
+					<el-submenu index="1">
+						<div slot="title">
+							<i class="el-icon-star-on"></i>
+							<span slot="title">主页</span>
+						</div>
+						<el-menu-item-group>
+							<el-menu-item index="1-1"></el-menu-item>
+							<el-menu-item index="1-2">选项2</el-menu-item>
+						</el-menu-item-group>
+						<el-submenu index="1-3">
+							<span slot="title">选项3</span>
+							<el-menu-item index="1-3-1">选项1</el-menu-item>
+						</el-submenu>
 					</el-submenu>
-				</el-submenu>
-			</el-menu> -->
+				</el-menu> -->
 		<div class="sidebar">
 			<ul class="sidebar-collapse">
 				<li>
@@ -87,6 +87,13 @@
 		width: 100%;
 		min-height: 100%;
 		border-right: 1px solid #e1e1e1;
+		.sidebar-collapse {
+			li {
+				i {
+					margin-right: 5px;
+				}
+			}
+		}
 	}
 	.el-menu-vertical-demo:not(.el-menu--collapse) {
 		min-width: 200px;
